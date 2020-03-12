@@ -1,0 +1,668 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		34132AEE24145D0400B4C798 /* WaxNavSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34132AED24145D0400B4C798 /* WaxNavSettingsViewController.swift */; };
+		34136DC323F8B1E40086F165 /* waxnav.db in Resources */ = {isa = PBXBuildFile; fileRef = 34136DBA23F8B1E40086F165 /* waxnav.db */; };
+		34CB4B9623EF097D00C37DCA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CB4B9523EF097D00C37DCA /* AppDelegate.swift */; };
+		34CB4B9D23EF097D00C37DCA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34CB4B9B23EF097D00C37DCA /* Main.storyboard */; };
+		34CB4B9F23EF097F00C37DCA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34CB4B9E23EF097F00C37DCA /* Assets.xcassets */; };
+		34CB4BA223EF097F00C37DCA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34CB4BA023EF097F00C37DCA /* LaunchScreen.storyboard */; };
+		34CB4BAD23EF097F00C37DCA /* WaxNavUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CB4BAC23EF097F00C37DCA /* WaxNavUITests.swift */; };
+		34D6AE9723F6F833001EAE88 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34D6AE8923F6F794001EAE88 /* SQLite.framework */; };
+		34D6AE9823F6F833001EAE88 /* SQLite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 34D6AE8923F6F794001EAE88 /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		34F30A7A23EF661300A1AD2B /* WaxNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F30A7923EF661300A1AD2B /* WaxNavViewController.swift */; };
+		34F30ABA23EF6FE800A1AD2B /* WaxUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34F30AB823EF6F3700A1AD2B /* WaxUtilities.framework */; };
+		34F30ABB23EF6FE800A1AD2B /* WaxUtilities.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 34F30AB823EF6F3700A1AD2B /* WaxUtilities.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		34F30ABE23EF7BB700A1AD2B /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F30ABD23EF7BB700A1AD2B /* Model.swift */; };
+		34FCB1F123FEC7900040C9CC /* GIS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FCB1F023FEC7900040C9CC /* GIS.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		34CB4BA923EF097F00C37DCA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 34CB4B8A23EF097D00C37DCA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 34CB4B9123EF097D00C37DCA;
+			remoteInfo = WaxNav;
+		};
+		34D6AE8823F6F794001EAE88 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 34D6AE7E23F6F794001EAE88 /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EE247AD31C3F04ED00AE3E12;
+			remoteInfo = "SQLite iOS";
+		};
+		34D6AE8A23F6F794001EAE88 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 34D6AE7E23F6F794001EAE88 /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EE247ADD1C3F04ED00AE3E12;
+			remoteInfo = "SQLiteTests iOS";
+		};
+		34D6AE8C23F6F794001EAE88 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 34D6AE7E23F6F794001EAE88 /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EE247B3C1C3F3ED000AE3E12;
+			remoteInfo = "SQLite Mac";
+		};
+		34D6AE8E23F6F794001EAE88 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 34D6AE7E23F6F794001EAE88 /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EE247B451C3F3ED000AE3E12;
+			remoteInfo = "SQLiteTests Mac";
+		};
+		34D6AE9023F6F794001EAE88 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 34D6AE7E23F6F794001EAE88 /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 03A65E5A1C6BB0F50062603F;
+			remoteInfo = "SQLite tvOS";
+		};
+		34D6AE9223F6F794001EAE88 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 34D6AE7E23F6F794001EAE88 /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 03A65E631C6BB0F60062603F;
+			remoteInfo = "SQLiteTests tvOS";
+		};
+		34D6AE9423F6F794001EAE88 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 34D6AE7E23F6F794001EAE88 /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A121AC451CA35C79005A31D1;
+			remoteInfo = "SQLite watchOS";
+		};
+		34F30AB723EF6F3700A1AD2B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 34F30AB323EF6F3700A1AD2B /* WaxUtilities.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3427027423EC6D8E00364B8E;
+			remoteInfo = WaxUtilities;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		34F30ABC23EF6FE800A1AD2B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				34D6AE9823F6F833001EAE88 /* SQLite.framework in Embed Frameworks */,
+				34F30ABB23EF6FE800A1AD2B /* WaxUtilities.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		34132AED24145D0400B4C798 /* WaxNavSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaxNavSettingsViewController.swift; sourceTree = "<group>"; };
+		34136DBA23F8B1E40086F165 /* waxnav.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = waxnav.db; sourceTree = "<group>"; };
+		34CB4B9223EF097D00C37DCA /* WaxNav.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WaxNav.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		34CB4B9523EF097D00C37DCA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		34CB4B9C23EF097D00C37DCA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		34CB4B9E23EF097F00C37DCA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		34CB4BA123EF097F00C37DCA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		34CB4BA323EF097F00C37DCA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		34CB4BA823EF097F00C37DCA /* WaxNavUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WaxNavUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		34CB4BAC23EF097F00C37DCA /* WaxNavUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaxNavUITests.swift; sourceTree = "<group>"; };
+		34CB4BAE23EF098000C37DCA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		34D6AE7E23F6F794001EAE88 /* SQLite.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SQLite.xcodeproj; path = ../../../SQLiteSwift/SQLite.swift.v5/SQLite.swift/SQLite.xcodeproj; sourceTree = "<group>"; };
+		34F30A7923EF661300A1AD2B /* WaxNavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaxNavViewController.swift; sourceTree = "<group>"; };
+		34F30AB323EF6F3700A1AD2B /* WaxUtilities.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = WaxUtilities.xcodeproj; path = ../../../WaxCommonMethodsFramework/WaxUtilities/WaxUtilities.xcodeproj; sourceTree = "<group>"; };
+		34F30ABD23EF7BB700A1AD2B /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		34FCB1F023FEC7900040C9CC /* GIS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIS.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		34CB4B8F23EF097D00C37DCA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				34D6AE9723F6F833001EAE88 /* SQLite.framework in Frameworks */,
+				34F30ABA23EF6FE800A1AD2B /* WaxUtilities.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		34CB4BA523EF097F00C37DCA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		34CB4B8923EF097D00C37DCA = {
+			isa = PBXGroup;
+			children = (
+				34CB4B9423EF097D00C37DCA /* WaxNav */,
+				34CB4BAB23EF097F00C37DCA /* WaxNavUITests */,
+				34CB4B9323EF097D00C37DCA /* Products */,
+				34F30AB923EF6FE800A1AD2B /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		34CB4B9323EF097D00C37DCA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				34CB4B9223EF097D00C37DCA /* WaxNav.app */,
+				34CB4BA823EF097F00C37DCA /* WaxNavUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		34CB4B9423EF097D00C37DCA /* WaxNav */ = {
+			isa = PBXGroup;
+			children = (
+				34136DBA23F8B1E40086F165 /* waxnav.db */,
+				34D6AE7E23F6F794001EAE88 /* SQLite.xcodeproj */,
+				34F30AB323EF6F3700A1AD2B /* WaxUtilities.xcodeproj */,
+				34CB4B9523EF097D00C37DCA /* AppDelegate.swift */,
+				34CB4B9E23EF097F00C37DCA /* Assets.xcassets */,
+				34CB4BA023EF097F00C37DCA /* LaunchScreen.storyboard */,
+				34CB4BA323EF097F00C37DCA /* Info.plist */,
+				34FCB1F023FEC7900040C9CC /* GIS.swift */,
+				34CB4B9B23EF097D00C37DCA /* Main.storyboard */,
+				34F30A7923EF661300A1AD2B /* WaxNavViewController.swift */,
+				34132AED24145D0400B4C798 /* WaxNavSettingsViewController.swift */,
+				34F30ABD23EF7BB700A1AD2B /* Model.swift */,
+			);
+			path = WaxNav;
+			sourceTree = "<group>";
+		};
+		34CB4BAB23EF097F00C37DCA /* WaxNavUITests */ = {
+			isa = PBXGroup;
+			children = (
+				34CB4BAC23EF097F00C37DCA /* WaxNavUITests.swift */,
+				34CB4BAE23EF098000C37DCA /* Info.plist */,
+			);
+			path = WaxNavUITests;
+			sourceTree = "<group>";
+		};
+		34D6AE7F23F6F794001EAE88 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				34D6AE8923F6F794001EAE88 /* SQLite.framework */,
+				34D6AE8B23F6F794001EAE88 /* SQLiteTests iOS.xctest */,
+				34D6AE8D23F6F794001EAE88 /* SQLite.framework */,
+				34D6AE8F23F6F794001EAE88 /* SQLiteTests Mac.xctest */,
+				34D6AE9123F6F794001EAE88 /* SQLite.framework */,
+				34D6AE9323F6F794001EAE88 /* SQLiteTests tvOS.xctest */,
+				34D6AE9523F6F794001EAE88 /* SQLite.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		34F30AB423EF6F3700A1AD2B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				34F30AB823EF6F3700A1AD2B /* WaxUtilities.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		34F30AB923EF6FE800A1AD2B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		34CB4B9123EF097D00C37DCA /* WaxNav */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 34CB4BB123EF098000C37DCA /* Build configuration list for PBXNativeTarget "WaxNav" */;
+			buildPhases = (
+				34CB4B8E23EF097D00C37DCA /* Sources */,
+				34CB4B8F23EF097D00C37DCA /* Frameworks */,
+				34CB4B9023EF097D00C37DCA /* Resources */,
+				34F30ABC23EF6FE800A1AD2B /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WaxNav;
+			productName = WaxNav;
+			productReference = 34CB4B9223EF097D00C37DCA /* WaxNav.app */;
+			productType = "com.apple.product-type.application";
+		};
+		34CB4BA723EF097F00C37DCA /* WaxNavUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 34CB4BB423EF098000C37DCA /* Build configuration list for PBXNativeTarget "WaxNavUITests" */;
+			buildPhases = (
+				34CB4BA423EF097F00C37DCA /* Sources */,
+				34CB4BA523EF097F00C37DCA /* Frameworks */,
+				34CB4BA623EF097F00C37DCA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				34CB4BAA23EF097F00C37DCA /* PBXTargetDependency */,
+			);
+			name = WaxNavUITests;
+			productName = WaxNavUITests;
+			productReference = 34CB4BA823EF097F00C37DCA /* WaxNavUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		34CB4B8A23EF097D00C37DCA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = waxcruz;
+				TargetAttributes = {
+					34CB4B9123EF097D00C37DCA = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					34CB4BA723EF097F00C37DCA = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = 34CB4B9123EF097D00C37DCA;
+					};
+				};
+			};
+			buildConfigurationList = 34CB4B8D23EF097D00C37DCA /* Build configuration list for PBXProject "WaxNav" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 34CB4B8923EF097D00C37DCA;
+			productRefGroup = 34CB4B9323EF097D00C37DCA /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 34D6AE7F23F6F794001EAE88 /* Products */;
+					ProjectRef = 34D6AE7E23F6F794001EAE88 /* SQLite.xcodeproj */;
+				},
+				{
+					ProductGroup = 34F30AB423EF6F3700A1AD2B /* Products */;
+					ProjectRef = 34F30AB323EF6F3700A1AD2B /* WaxUtilities.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				34CB4B9123EF097D00C37DCA /* WaxNav */,
+				34CB4BA723EF097F00C37DCA /* WaxNavUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		34D6AE8923F6F794001EAE88 /* SQLite.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SQLite.framework;
+			remoteRef = 34D6AE8823F6F794001EAE88 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		34D6AE8B23F6F794001EAE88 /* SQLiteTests iOS.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "SQLiteTests iOS.xctest";
+			remoteRef = 34D6AE8A23F6F794001EAE88 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		34D6AE8D23F6F794001EAE88 /* SQLite.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SQLite.framework;
+			remoteRef = 34D6AE8C23F6F794001EAE88 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		34D6AE8F23F6F794001EAE88 /* SQLiteTests Mac.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "SQLiteTests Mac.xctest";
+			remoteRef = 34D6AE8E23F6F794001EAE88 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		34D6AE9123F6F794001EAE88 /* SQLite.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SQLite.framework;
+			remoteRef = 34D6AE9023F6F794001EAE88 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		34D6AE9323F6F794001EAE88 /* SQLiteTests tvOS.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "SQLiteTests tvOS.xctest";
+			remoteRef = 34D6AE9223F6F794001EAE88 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		34D6AE9523F6F794001EAE88 /* SQLite.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SQLite.framework;
+			remoteRef = 34D6AE9423F6F794001EAE88 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		34F30AB823EF6F3700A1AD2B /* WaxUtilities.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = WaxUtilities.framework;
+			remoteRef = 34F30AB723EF6F3700A1AD2B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		34CB4B9023EF097D00C37DCA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				34CB4BA223EF097F00C37DCA /* LaunchScreen.storyboard in Resources */,
+				34CB4B9F23EF097F00C37DCA /* Assets.xcassets in Resources */,
+				34136DC323F8B1E40086F165 /* waxnav.db in Resources */,
+				34CB4B9D23EF097D00C37DCA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		34CB4BA623EF097F00C37DCA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		34CB4B8E23EF097D00C37DCA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				34F30ABE23EF7BB700A1AD2B /* Model.swift in Sources */,
+				34CB4B9623EF097D00C37DCA /* AppDelegate.swift in Sources */,
+				34F30A7A23EF661300A1AD2B /* WaxNavViewController.swift in Sources */,
+				34132AEE24145D0400B4C798 /* WaxNavSettingsViewController.swift in Sources */,
+				34FCB1F123FEC7900040C9CC /* GIS.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		34CB4BA423EF097F00C37DCA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				34CB4BAD23EF097F00C37DCA /* WaxNavUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		34CB4BAA23EF097F00C37DCA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 34CB4B9123EF097D00C37DCA /* WaxNav */;
+			targetProxy = 34CB4BA923EF097F00C37DCA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		34CB4B9B23EF097D00C37DCA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				34CB4B9C23EF097D00C37DCA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		34CB4BA023EF097F00C37DCA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				34CB4BA123EF097F00C37DCA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		34CB4BAF23EF098000C37DCA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		34CB4BB023EF098000C37DCA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		34CB4BB223EF098000C37DCA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = XZMW4PYK4Y;
+				INFOPLIST_FILE = WaxNav/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.waxcruz.WaxNav;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		34CB4BB323EF098000C37DCA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = XZMW4PYK4Y;
+				INFOPLIST_FILE = WaxNav/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.waxcruz.WaxNav;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		34CB4BB523EF098000C37DCA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XZMW4PYK4Y;
+				INFOPLIST_FILE = WaxNavUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.waxcruz.WaxNavUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = WaxNav;
+			};
+			name = Debug;
+		};
+		34CB4BB623EF098000C37DCA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XZMW4PYK4Y;
+				INFOPLIST_FILE = WaxNavUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.waxcruz.WaxNavUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = WaxNav;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		34CB4B8D23EF097D00C37DCA /* Build configuration list for PBXProject "WaxNav" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				34CB4BAF23EF098000C37DCA /* Debug */,
+				34CB4BB023EF098000C37DCA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		34CB4BB123EF098000C37DCA /* Build configuration list for PBXNativeTarget "WaxNav" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				34CB4BB223EF098000C37DCA /* Debug */,
+				34CB4BB323EF098000C37DCA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		34CB4BB423EF098000C37DCA /* Build configuration list for PBXNativeTarget "WaxNavUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				34CB4BB523EF098000C37DCA /* Debug */,
+				34CB4BB623EF098000C37DCA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 34CB4B8A23EF097D00C37DCA /* Project object */;
+}
