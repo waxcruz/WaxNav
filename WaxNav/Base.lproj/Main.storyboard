@@ -174,35 +174,35 @@
                                                     </textField>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="xYg-jJ-knw" userLabel="Limit View">
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xYg-jJ-knw" userLabel="Limit View">
                                                 <rect key="frame" x="0.0" y="224" width="394" height="110"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="State" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U1D-Y6-stg" userLabel="State">
-                                                        <rect key="frame" x="0.0" y="0.0" width="69.666666666666671" height="110"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="State" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U1D-Y6-stg" userLabel="State">
+                                                        <rect key="frame" x="0.0" y="0.0" width="45.666666666666664" height="110"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="AZ" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="0ia-dJ-qX3" userLabel="State Limit">
-                                                        <rect key="frame" x="69.666666666666671" y="0.0" width="82.000000000000014" height="110"/>
+                                                        <rect key="frame" x="45.666666666666657" y="0.0" width="54" height="110"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Limit (Miles)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nPs-xI-AR8" userLabel="Max Distance">
-                                                        <rect key="frame" x="151.66666666666666" y="0.0" width="193.99999999999997" height="110"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="240" verticalHuggingPriority="240" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" text="Limit (Miles)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nPs-xI-AR8" userLabel="Max Distance">
+                                                        <rect key="frame" x="99.666666666666686" y="0.0" width="125" height="110"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="125" id="rT2-EM-Ajt"/>
+                                                        </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="25" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="pJm-He-kP8" userLabel="Max Distance Value">
-                                                        <rect key="frame" x="345.66666666666669" y="0.0" width="48.333333333333314" height="110"/>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="10" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="25" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="pJm-He-kP8" userLabel="Max Distance Value">
+                                                        <rect key="frame" x="224.66666666666663" y="0.0" width="169.33333333333337" height="110"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                     </textField>
                                                 </subviews>
-                                                <constraints>
-                                                    <constraint firstItem="pJm-He-kP8" firstAttribute="width" secondItem="nPs-xI-AR8" secondAttribute="width" multiplier="0.25" id="PfP-fB-Q9p"/>
-                                                </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="CTg-2d-KBz" userLabel="Location Action View">
                                                 <rect key="frame" x="0.0" y="336" width="394" height="110"/>

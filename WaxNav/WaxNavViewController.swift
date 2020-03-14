@@ -337,6 +337,7 @@ class WaxNavViewController: UIViewController, UITextFieldDelegate, UITableViewDe
                         let compass = gps.bearing(destinationLat: Double(destinationChoiceLatitude)!,destinationLon: Double(destinationChoiceLongitude)!)
                         destinationBearing.text = String(format: "%.3f",compass)
                         destinationAltitude.text = ""
+                        return
                     }
                 }
             }
