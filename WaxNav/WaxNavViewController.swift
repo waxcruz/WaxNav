@@ -104,6 +104,7 @@ class WaxNavViewController: UIViewController, UITextFieldDelegate, UITableViewDe
     let locationManager = CLLocationManager()
     var latitude : Double = 0.0
     var longitude : Double = 0.0
+    var altitude : Double = 0.0
     var stateChoice : String = ""
     
     
@@ -124,15 +125,18 @@ class WaxNavViewController: UIViewController, UITextFieldDelegate, UITableViewDe
     }
      public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
          if let location : CLLocation = locations.last {
-             latitude = location.coordinate.latitude
-             longitude = location.coordinate.longitude
+            latitude = location.coordinate.latitude
+            longitude = location.coordinate.longitude
+            altitude = location.altitude * 3.28084
          } else {
-             latitude = 0.0
-             longitude = 0.0
+            latitude = 0.0
+            longitude = 0.0
+            altitude = 0.0
          }
-         locationManager.stopUpdatingLocation()
-        gps.latitude = latitude
-        gps.longitude = longitude
+            locationManager.stopUpdatingLocation()
+            gps.latitude = latitude
+            gps.longitude = longitude
+            gps.altitude = altitude
      }
      
      public func getLocation() {
@@ -149,7 +153,7 @@ class WaxNavViewController: UIViewController, UITextFieldDelegate, UITableViewDe
       }
     
     func displayMyLocation() {
-        currentPosition.text = String(format: "Current position is %.3f (lat) : %.3f (lon)", latitude, longitude)
+        currentPosition.text = String(format: "Current position is %.3f (lat) : %.3f (lon) at %@", latitude, longitude, WaxNumberFormatting.doubleWithSeparator(myNumber: altitude))
         messageText.text = ""
     }
 
