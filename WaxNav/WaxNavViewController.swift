@@ -27,7 +27,6 @@ class WaxNavViewController: UIViewController, UITextFieldDelegate, UITableViewDe
 // labels of input fields for highlighting use
     @IBOutlet weak var facingLabel: UILabel!
     @IBOutlet weak var minAltitudeLabel: UILabel!
-    @IBOutlet weak var stateLabel: UILabel!
     @IBOutlet weak var maxDistanceLabel: UILabel!
     @IBOutlet weak var searchLabel: UILabel!
     
@@ -56,17 +55,7 @@ class WaxNavViewController: UIViewController, UITextFieldDelegate, UITableViewDe
            }
        }
     
-    
-    
-    @IBOutlet weak var state: UITextField!{
-        didSet {
-            state?.addDoneCancelToolbar(onDone: (target: self, action: #selector(doneButtonTappedForStateTextField)))
-        }
-    }
-    
-    
-    
-    
+
     
     @IBOutlet weak var minAltitude: UITextField! {
         didSet {
@@ -97,7 +86,6 @@ class WaxNavViewController: UIViewController, UITextFieldDelegate, UITableViewDe
     var minAltitudeChoice : String = ""
     var distanceChoice : String = ""
     var bearingChoiceValue : String = ""
-    var bearingTolerance : String = ""
     var results : [GIS] = []
     let model = Model.model
     let waxNavDatabaseName = "waxnav"
@@ -120,7 +108,7 @@ class WaxNavViewController: UIViewController, UITextFieldDelegate, UITableViewDe
         locations.dataSource = (self as UITableViewDataSource)
         gps.latitude = latitude
         gps.longitude = longitude
-        stateChoice = state.text!
+
         
     }
      public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -150,6 +138,15 @@ class WaxNavViewController: UIViewController, UITextFieldDelegate, UITableViewDe
         super.viewWillAppear(false)
         displayMyLocation()
         destinationBearing.text = ""
+        let mySettings = model.settingsSelected
+        let useMyAltitudeChoice = mySettings["altitude"]
+        if useMyAltitudeChoice == "True" {
+            minAltitudeLabel.isHidden = true
+            minAltitude.isHidden = true
+        } else {
+            minAltitudeLabel.isHidden = false
+            minAltitude.isHidden = false
+        }
       }
     
     func displayMyLocation() {
@@ -175,7 +172,6 @@ class WaxNavViewController: UIViewController, UITextFieldDelegate, UITableViewDe
     
     @IBAction func setCompass(_ sender: Any) {
         bearingChoiceValue = bearingChoice.text ?? ""
-        bearingTolerance = "5"
         messageText.text = checkForChoiceConflicts()
     }
     
@@ -265,7 +261,6 @@ class WaxNavViewController: UIViewController, UITextFieldDelegate, UITableViewDe
         bearingChoice.resignFirstResponder()
         displayMyLocation()
         bearingChoiceValue = bearingChoice.text ?? ""
-        bearingTolerance = "5"
         if bearingChoiceValue == "" {
             bearingChoice.backgroundColor = UIColor.white
         } else {
@@ -285,41 +280,6 @@ class WaxNavViewController: UIViewController, UITextFieldDelegate, UITableViewDe
             destinationName.backgroundColor = UIColor.white
         }
         messageText.text = checkForChoiceConflicts()
-    }
-
-//    
-//    @IBAction func searchLocation(_ sender: Any) {
-//        destinationName.resignFirstResponder()
-//        destinationChoiceName = destinationName.text!
-//        destinationChoiceLatitude = ""
-//        destinationChoiceLongitude = ""
-//        if destinationChoiceName != "" {
-//            destinationName.backgroundColor = UIColor.green
-//        } else {
-//            destinationName.backgroundColor = UIColor.white
-//        }
-//        messageText.text = checkForChoiceConflicts()
-//        
-//    }
-    
-    
-    
-    
-    
-    
-    @objc func doneButtonTappedForStateTextField() {
-        state.resignFirstResponder()
-        stateChoice = state.text!
-        if (!(states.contains(stateChoice))) {
-            messageText.text = "Select a state abbreviation for faster searches"
-            return
-        }
-        if stateChoice != "" {
-            state.backgroundColor = UIColor.green
-        } else {
-            state.backgroundColor = UIColor.white
-        }
-
     }
 
     @IBAction func goDisplay(_ sender: Any) {
@@ -356,10 +316,12 @@ class WaxNavViewController: UIViewController, UITextFieldDelegate, UITableViewDe
             // 6. Destination Latitude
             // 7. Destination Longitude
             // 8. Bearing
-            // 9. Bearing tolerance
-            // 10. State
+
             var sqlCommand = Array<String>()
             sqlCommand.append(destinationChoiceName)
+            if minAltitudeLabel.isHidden {
+                minAltitudeChoice = String(gps.altitude)
+            }
             sqlCommand.append(minAltitudeChoice)
             sqlCommand.append(facingChoice)
             sqlCommand.append(distanceChoice)
@@ -368,8 +330,7 @@ class WaxNavViewController: UIViewController, UITextFieldDelegate, UITableViewDe
             sqlCommand.append(destinationChoiceLatitude)
             sqlCommand.append(destinationChoiceLongitude)
             sqlCommand.append(bearingChoiceValue)
-            sqlCommand.append(bearingTolerance)
-            sqlCommand.append(stateChoice)
+
             DispatchQueue.global(qos: .userInitiated).async {
                 self.results = self.model.runSQL(gps: self.gps, mySQLCommand: sqlCommand)
                 DispatchQueue.main.async {

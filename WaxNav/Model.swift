@@ -16,12 +16,19 @@ class Model  {
     static let model = Model()
     public var sqliteMessage :  String
     public static let waxnav : String = "waxnav"
-    static var features = ["A":true, "H":true, "L":true, "P":true, "R":true, "S":true, "T":true, "U":true, "V":true, "X": false]
+    static var features = ["A":false, "H":false, "L":false, "P":false, "R":false, "S":false, "T":true, "U":false, "V":false, "X": false]
     public var featureClasses = ["A", "H", "L", "P", "R", "S", "T", "U", "V", "X"]
     public var featuresSelected = [String:Bool]() {
         didSet {
             let defaults = UserDefaults.standard
             defaults.set(featuresSelected,forKey: "WaxNavFeatureClassSelections")
+        }
+    }
+    static let noSettings = ["state" : "AZ", "tolerance" : "5", "altitude" : "True", "limit" : "1000"]
+    public var settingsSelected = [String : String]() {
+        didSet {
+            let defaults = UserDefaults.standard
+            defaults.set(settingsSelected, forKey: "WaxNavSettings")
         }
     }
     //    sqlite> PRAGMA table_info(locations);
@@ -42,6 +49,7 @@ class Model  {
     private init() {
         sqliteMessage = ""
         self.loadFeatureSelections()
+        self.loadSettingsSelected()
     }
     
     func loadFeatureSelections() {
@@ -52,8 +60,18 @@ class Model  {
         } else {
             featuresSelected = savedFeatureSelection
         }
+        
     }
-    
+    func loadSettingsSelected() {
+        let defaults = UserDefaults.standard
+        let savedSettingsSelected = defaults.object(forKey: "WaxNavSettings") as? [String:String] ?? [String:String]()
+        if savedSettingsSelected.count == 0 {
+            settingsSelected = Model.noSettings
+        } else {
+            settingsSelected = savedSettingsSelected
+        }
+    }
+
     
     
     
@@ -91,8 +109,7 @@ class Model  {
         // 6. Destination Latitude
         // 7. Destination Longitude
         // 8. Bearing
-        // 9. Bearing tolerance
-        // 10. State
+
 
 
         // Types of location searches
@@ -104,20 +121,16 @@ class Model  {
         var minAltitudeLimit : Double = 0.0
         var distanceLimit : Double = 25.0
         var bearing : Double = -1.0
-        var bearingTolerance : Double = 0.0
         let myLat = Double(command[4])!
         let myLon = Double(command[5])!
-        var state = command[10]
+        var bearingTolerance : Double = Double(settingsSelected["tolerance"] ?? "5")!
+        var state : String = settingsSelected["state"] ?? "CA"
         if state != "" {
             state = "'" + state + "'"
         }
         if let sqlPath = Bundle.main.path(forResource: Model.waxnav, ofType: "db") {
             do {
                 let db = try Connection((sqlPath))
-//                let locations = Table("locations")
-//                let point = VirtualTable("point")
-//                let pointLocation = Expression<String>("location")
-//                let pointRowID = Expression<Int64>("rowid")
                 // setup search arguments
                 if command[1] != "" {
                     minAltitudeLimit = Double(command[1])!
@@ -139,12 +152,8 @@ class Model  {
                 if command[8] != "" {
                     bearing = Double(command[8])!
                 }
-                if command[9] != "" {
-                    bearingTolerance = Double(command[9])!
-                }
-                
-//                let locationWhere = location.like(strWhere)
-                let limitCount = 1000
+                bearingTolerance = Double(settingsSelected["tolerance"] ?? "5")!
+                let limitCount = settingsSelected["limit"] ?? "1000"
                 var minLat = myLat
                 var maxLat = myLat
                 var minLon = myLon

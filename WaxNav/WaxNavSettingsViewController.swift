@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 
-class WaxNavSettingsViewController: UIViewController {
+class WaxNavSettingsViewController: UIViewController, UITextFieldDelegate {
     
     // selections
     @IBOutlet weak var featureA: UISwitch!
@@ -23,6 +23,26 @@ class WaxNavSettingsViewController: UIViewController {
     @IBOutlet weak var featureU: UISwitch!
     @IBOutlet weak var featureV: UISwitch!
     @IBOutlet weak var featureX: UISwitch!
+    @IBOutlet weak var useMyCurrentAltitude: UISwitch!
+    // input fields
+    @IBOutlet weak var defaultState: UITextField! {
+        didSet {
+            defaultState?.addDoneCancelToolbar(onDone: (target: self, action: #selector(doneButtonTappedForDefaultStateTextField)))
+        }
+    }
+    @IBOutlet weak var toleranceFieldOfView: UITextField! {
+        didSet {
+            toleranceFieldOfView?.addDoneCancelToolbar(onDone: (target: self, action: #selector(doneButtonTappedForToleranceFieldOfView)))
+        }
+    }
+    
+    @IBOutlet weak var selectLimit: UITextField! {
+        didSet {
+            selectLimit?.addDoneCancelToolbar(onDone: (target: self, action: #selector(doneButtonTappedForSelectLimit)))
+        }
+    }
+    
+    
     
     // local
     let model = Model.model
@@ -49,7 +69,9 @@ class WaxNavSettingsViewController: UIViewController {
         for featureSwitch in featureSwitches {
             featureSwitch.isOn = selectedFeatures[model.featureClasses[featureSwitch.tag]] ?? false
         }
-
+        let selectedSettings = model.settingsSelected
+        defaultState.text = selectedSettings["state"]
+        toleranceFieldOfView.text = selectedSettings["tolerance"]
     }
     
     // feature selected
@@ -65,5 +87,31 @@ class WaxNavSettingsViewController: UIViewController {
         dismiss(animated: false, completion: nil)
     }
     
+    @objc func doneButtonTappedForDefaultStateTextField() {
+        updateSettingsChoices(settingsKey: "state", settingsValue: defaultState.text ?? "CA")
+        defaultState.resignFirstResponder()
+    }
+
+    @objc func doneButtonTappedForToleranceFieldOfView() {
+        updateSettingsChoices(settingsKey: "tolerance", settingsValue: toleranceFieldOfView.text ?? "5")
+        toleranceFieldOfView.resignFirstResponder()
+    }
+
+    @objc func doneButtonTappedForSelectLimit() {
+        updateSettingsChoices(settingsKey: "limit", settingsValue: selectLimit.text ?? "1000")
+        toleranceFieldOfView.resignFirstResponder()
+    }
+
+    
+    func updateSettingsChoices(settingsKey : String, settingsValue : String) {
+        var updateSettings = model.settingsSelected
+        updateSettings[settingsKey] = settingsValue
+        model.settingsSelected = updateSettings
+    }
+    
+    @IBAction func minAltitudeChoice(_ sender: UISwitch) {
+        updateSettingsChoices(settingsKey: "altitude", settingsValue: sender.isOn ? "True" : "False")
+        useMyCurrentAltitude.resignFirstResponder()
+    }
     
 }

@@ -177,28 +177,17 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xYg-jJ-knw" userLabel="Limit View">
                                                 <rect key="frame" x="0.0" y="224" width="394" height="110"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="State" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U1D-Y6-stg" userLabel="State">
-                                                        <rect key="frame" x="0.0" y="0.0" width="45.666666666666664" height="110"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="AZ" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="0ia-dJ-qX3" userLabel="State Limit">
-                                                        <rect key="frame" x="45.666666666666657" y="0.0" width="54" height="110"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="240" verticalHuggingPriority="240" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" text="Limit (Miles)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nPs-xI-AR8" userLabel="Max Distance">
-                                                        <rect key="frame" x="99.666666666666686" y="0.0" width="125" height="110"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="125" height="110"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="125" id="rT2-EM-Ajt"/>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="125" id="rT2-EM-Ajt"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="10" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="25" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="pJm-He-kP8" userLabel="Max Distance Value">
-                                                        <rect key="frame" x="224.66666666666663" y="0.0" width="169.33333333333337" height="110"/>
+                                                        <rect key="frame" x="125" y="0.0" width="269" height="110"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                     </textField>
@@ -330,8 +319,6 @@
                         <outlet property="minAltitude" destination="n18-LI-mp1" id="P6V-ki-uz6"/>
                         <outlet property="minAltitudeLabel" destination="uTg-OS-OJt" id="G1c-L1-0J4"/>
                         <outlet property="searchLabel" destination="MmB-hk-UJq" id="WGR-ob-qVn"/>
-                        <outlet property="state" destination="0ia-dJ-qX3" id="o8p-JS-3Rj"/>
-                        <outlet property="stateLabel" destination="U1D-Y6-stg" id="USc-zH-8VH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -566,7 +553,7 @@
                                                 <rect key="frame" x="2" y="345" width="406" height="297.33333333333326"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Ocn-Ey-gNf" userLabel="Settings Stack View">
-                                                        <rect key="frame" x="2" y="2" width="402" height="102"/>
+                                                        <rect key="frame" x="2" y="2" width="402" height="136"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0oH-Ky-9rm" userLabel="State Stack View">
                                                                 <rect key="frame" x="0.0" y="0.0" width="402" height="34"/>
@@ -587,10 +574,13 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hrc-IY-MoL" userLabel="Use my altitude Stack View">
                                                                 <rect key="frame" x="0.0" y="34" width="402" height="34"/>
                                                                 <subviews>
-                                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5tL-8E-KK7" userLabel="Min Altitude Switch">
+                                                                    <switch opaque="NO" tag="10" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5tL-8E-KK7" userLabel="Min Altitude Switch">
                                                                         <rect key="frame" x="0.0" y="0.0" width="51" height="34"/>
+                                                                        <connections>
+                                                                            <action selector="minAltitudeChoice:" destination="nwr-WG-oYS" eventType="valueChanged" id="Pj5-SZ-7fA"/>
+                                                                        </connections>
                                                                     </switch>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My current altitude is the minimum" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VB3-Jx-Mcd">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make my altitude the minimum" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VB3-Jx-Mcd">
                                                                         <rect key="frame" x="49" y="0.0" width="353" height="34"/>
                                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                                         <nil key="textColor"/>
@@ -609,6 +599,22 @@
                                                                     </label>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="5" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Fi-dI-exL" userLabel="Tolerance Text Field">
                                                                         <rect key="frame" x="275.66666666666669" y="0.0" width="126.33333333333331" height="34"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                                        <textInputTraits key="textInputTraits"/>
+                                                                    </textField>
+                                                                </subviews>
+                                                            </stackView>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vvx-IU-jTI" userLabel="Select limit Stack View">
+                                                                <rect key="frame" x="0.0" y="101.99999999999994" width="402" height="34"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select statement LIMIT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3h3-3N-hHv" userLabel="Select Limit">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="217.66666666666666" height="34"/>
+                                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1000" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o4Z-KB-2Mf" userLabel="Limit">
+                                                                        <rect key="frame" x="217.66666666666663" y="0.0" width="184.33333333333337" height="34"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                                         <textInputTraits key="textInputTraits"/>
                                                                     </textField>
@@ -661,6 +667,7 @@
                         <viewLayoutGuide key="safeArea" id="BzA-SS-uE1"/>
                     </view>
                     <connections>
+                        <outlet property="defaultState" destination="IoB-RS-Xdi" id="xxT-w0-hUz"/>
                         <outlet property="featureA" destination="HTV-qU-X7G" id="8ha-bg-1LV"/>
                         <outlet property="featureH" destination="wTf-3N-xq8" id="rmH-R5-8CS"/>
                         <outlet property="featureL" destination="Dtb-iU-yiO" id="caC-MN-Aow"/>
@@ -671,6 +678,9 @@
                         <outlet property="featureU" destination="oL6-Gf-xTs" id="9nr-sl-HRz"/>
                         <outlet property="featureV" destination="bi0-d6-fsS" id="2J9-ee-Vkg"/>
                         <outlet property="featureX" destination="DeJ-T2-0vD" id="g1Z-Md-eCn"/>
+                        <outlet property="selectLimit" destination="o4Z-KB-2Mf" id="LKU-gq-TLa"/>
+                        <outlet property="toleranceFieldOfView" destination="5Fi-dI-exL" id="8y2-NY-vu1"/>
+                        <outlet property="useMyCurrentAltitude" destination="5tL-8E-KK7" id="yut-aH-cco"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PmN-LQ-knu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
