@@ -116,6 +116,7 @@ class WaxNavViewController: UIViewController, UITextFieldDelegate, UITableViewDe
             latitude = location.coordinate.latitude
             longitude = location.coordinate.longitude
             altitude = location.altitude * 3.28084
+
          } else {
             latitude = 0.0
             longitude = 0.0
