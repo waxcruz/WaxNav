@@ -122,10 +122,10 @@ class WaxNavViewController: UIViewController, UITextFieldDelegate, UITableViewDe
             longitude = 0.0
             altitude = 0.0
          }
-            locationManager.stopUpdatingLocation()
-            gps.latitude = latitude
-            gps.longitude = longitude
-            gps.altitude = altitude
+        locationManager.stopUpdatingLocation()
+        gps.latitude = latitude
+        gps.longitude = longitude
+        gps.altitude = altitude
      }
      
      public func getLocation() {
@@ -161,6 +161,7 @@ class WaxNavViewController: UIViewController, UITextFieldDelegate, UITableViewDe
     }
     @IBAction func sightCompass(_ sender: Any) {
         locationManager.startUpdatingHeading()
+        locationManager.startUpdatingLocation()
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
