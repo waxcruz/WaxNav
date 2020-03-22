@@ -72,6 +72,7 @@ class WaxNavSettingsViewController: UIViewController, UITextFieldDelegate {
         let selectedSettings = model.settingsSelected
         defaultState.text = selectedSettings["state"]
         toleranceFieldOfView.text = selectedSettings["tolerance"]
+        useMyCurrentAltitude.isOn = selectedSettings["altitude"] == "True" ? true : false
     }
     
     // feature selected
