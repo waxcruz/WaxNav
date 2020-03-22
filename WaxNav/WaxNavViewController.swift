@@ -162,6 +162,7 @@ class WaxNavViewController: UIViewController, UITextFieldDelegate, UITableViewDe
     @IBAction func sightCompass(_ sender: Any) {
         locationManager.startUpdatingHeading()
         locationManager.startUpdatingLocation()
+        displayMyLocation()
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
