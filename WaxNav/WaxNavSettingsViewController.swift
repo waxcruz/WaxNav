@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 
-class WaxNavSettingsViewController: UIViewController, UITextFieldDelegate {
+class WaxNavSettingsViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     
     // selections
     @IBOutlet weak var featureA: UISwitch!
@@ -24,12 +24,10 @@ class WaxNavSettingsViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var featureV: UISwitch!
     @IBOutlet weak var featureX: UISwitch!
     @IBOutlet weak var useMyCurrentAltitude: UISwitch!
+    @IBOutlet weak var statePicker: UIPickerView!
+    
+    
     // input fields
-    @IBOutlet weak var defaultState: UITextField! {
-        didSet {
-            defaultState?.addDoneCancelToolbar(onDone: (target: self, action: #selector(doneButtonTappedForDefaultStateTextField)))
-        }
-    }
     @IBOutlet weak var toleranceFieldOfView: UITextField! {
         didSet {
             toleranceFieldOfView?.addDoneCancelToolbar(onDone: (target: self, action: #selector(doneButtonTappedForToleranceFieldOfView)))
@@ -47,6 +45,7 @@ class WaxNavSettingsViewController: UIViewController, UITextFieldDelegate {
     // local
     let model = Model.model
     var featureSwitches = Array<UISwitch>()
+    let states = ["AK", "AL", "AR", "AZ", "CA", "CO", "CT", "DC", "DE", "FL", "GA", "HI", "IA", "ID", "IL", "IN", "KS", "KY", "LA", "MA", "MD", "ME", "MI", "MN", "MO", "MS", "MT", "NC", "ND", "NE", "NH", "NJ", "NM", "NV", "NY", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VA", "VT", "WA", "WI", "WV", "WY"]
 
     override func viewDidLoad() {
         // each switch feature's tag is used as index so place switches in the tag value order
@@ -60,6 +59,8 @@ class WaxNavSettingsViewController: UIViewController, UITextFieldDelegate {
         featureSwitches.append(featureU)
         featureSwitches.append(featureV)
         featureSwitches.append(featureX)
+        statePicker.delegate = self
+        statePicker.dataSource = self
     }
     
     
@@ -70,9 +71,10 @@ class WaxNavSettingsViewController: UIViewController, UITextFieldDelegate {
             featureSwitch.isOn = selectedFeatures[model.featureClasses[featureSwitch.tag]] ?? false
         }
         let selectedSettings = model.settingsSelected
-        defaultState.text = selectedSettings["state"]
         toleranceFieldOfView.text = selectedSettings["tolerance"]
         useMyCurrentAltitude.isOn = selectedSettings["altitude"] == "True" ? true : false
+        let stateIndex = states.firstIndex(of: selectedSettings["state"] ?? "CA")
+        statePicker.selectRow(stateIndex ?? 0, inComponent: 0, animated: true)
     }
     
     // feature selected
@@ -88,10 +90,6 @@ class WaxNavSettingsViewController: UIViewController, UITextFieldDelegate {
         dismiss(animated: false, completion: nil)
     }
     
-    @objc func doneButtonTappedForDefaultStateTextField() {
-        updateSettingsChoices(settingsKey: "state", settingsValue: defaultState.text ?? "CA")
-        defaultState.resignFirstResponder()
-    }
 
     @objc func doneButtonTappedForToleranceFieldOfView() {
         updateSettingsChoices(settingsKey: "tolerance", settingsValue: toleranceFieldOfView.text ?? "5")
@@ -115,4 +113,22 @@ class WaxNavSettingsViewController: UIViewController, UITextFieldDelegate {
         useMyCurrentAltitude.resignFirstResponder()
     }
     
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        let state = states[row]
+        updateSettingsChoices(settingsKey: "state", settingsValue: state)
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return states.count
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return states[row]
+    }
+
+    	
 }
