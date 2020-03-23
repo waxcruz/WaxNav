@@ -107,22 +107,22 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="394" height="110"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZBW-AC-RIc">
-                                                        <rect key="frame" x="0.0" y="0.0" width="76" height="110"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="103" height="110"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                        <state key="normal" title="Sight 🎯"/>
+                                                        <state key="normal" title="Heading 🎯"/>
                                                         <connections>
                                                             <action selector="sightCompass:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="4gy-Zo-gPm"/>
                                                             <action selector="sightCompass:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EEP-JH-n1o"/>
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iL4-VS-Js6" userLabel="Heading">
-                                                        <rect key="frame" x="102.33333333333333" y="0.0" width="49.999999999999986" height="110"/>
+                                                        <rect key="frame" x="122.66666666666666" y="0.0" width="50" height="110"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JcF-QR-EnJ">
-                                                        <rect key="frame" x="178.66666666666666" y="0.0" width="59" height="110"/>
+                                                        <rect key="frame" x="192" y="0.0" width="59" height="110"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                         <state key="normal" title="Set ✅"/>
                                                         <connections>
@@ -130,7 +130,7 @@
                                                         </connections>
                                                     </button>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ODE-Eb-cdS" userLabel="Bearing Choice">
-                                                        <rect key="frame" x="263.66666666666669" y="0.0" width="33" height="110"/>
+                                                        <rect key="frame" x="270.66666666666669" y="0.0" width="33" height="110"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                     </textField>

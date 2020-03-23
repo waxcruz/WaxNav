@@ -170,7 +170,7 @@ class WaxNavViewController: UIViewController, UITextFieldDelegate, UITableViewDe
         heading.text = headingText
         bearingChoice.text = String(format: "%0.f",locationManager.heading?.trueHeading ?? 0.0)
         bearingChoiceValue = bearingChoice.text ?? ""
-        locationManager.stopUpdatingHeading()
+        // locationManager.stopUpdatingHeading()
     }
     
     @IBAction func setCompass(_ sender: Any) {
@@ -183,6 +183,7 @@ class WaxNavViewController: UIViewController, UITextFieldDelegate, UITableViewDe
         bearingChoice.text = ""
         bearingChoice.backgroundColor = UIColor.white
         bearingChoiceValue = ""
+        locationManager.stopUpdatingHeading()
     }
     
 //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -191,7 +192,7 @@ class WaxNavViewController: UIViewController, UITextFieldDelegate, UITableViewDe
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // display bearing and elevation
         destinationAltitude.text = String(format: "altitude: %0.0f,  topo map distance: %0.2f",results[indexPath.row].elevation, results[indexPath.row].distance)
-        destinationBearing.text = String(format:"%0.0fº",results[indexPath.row].bearing)
+        destinationBearing.text = String(format:"Bearing to location %0.0fº",results[indexPath.row].bearing)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
