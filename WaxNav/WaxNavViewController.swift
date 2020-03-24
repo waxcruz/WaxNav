@@ -372,8 +372,11 @@ class WaxNavViewController: UIViewController, UITextFieldDelegate, UITableViewDe
 
     }
     
+    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+        return 24.0
+    }
 
-
+    
 // class end
 }
 
