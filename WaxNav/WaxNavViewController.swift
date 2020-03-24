@@ -12,7 +12,8 @@ import WaxUtilities
 import CoreLocation
 
 
-class WaxNavViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
+class WaxNavViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+    
 
     
     
@@ -34,6 +35,7 @@ class WaxNavViewController: UIViewController, UITextFieldDelegate, UITableViewDe
     
 // input fields
     
+    @IBOutlet weak var facingPicker: UIPickerView!
     
     @IBOutlet weak var bearingChoice: UITextField!{
         didSet {
@@ -48,13 +50,7 @@ class WaxNavViewController: UIViewController, UITextFieldDelegate, UITableViewDe
     }
     
     
-    @IBOutlet weak var facingDirection: UITextField!
-    {
-           didSet {
-               facingDirection?.addDoneCancelToolbar(onDone: (target: self, action: #selector(doneButtonTappedForFacingDirectionTextField)))
-           }
-       }
-    
+   
 
     
     @IBOutlet weak var minAltitude: UITextField! {
@@ -78,8 +74,8 @@ class WaxNavViewController: UIViewController, UITextFieldDelegate, UITableViewDe
     var copyrightYear : String = ""
     let gps = WaxUtilities.WaxLocationMethods()
     let facingDirections = ["", "N", "E", "S", "W", "NE", "SE", "SW", "NW"]
-    let states = ["AK", "AL", "AR", "AZ", "CA", "CO", "CT", "DC", "DE", "FL", "GA", "HI", "IA", "ID", "IL", "IN", "KS", "KY", "LA", "MA", "MD", "ME", "MI", "MN", "MO", "MS", "MT", "NC", "ND", "NE", "NH", "NJ", "NM", "NV", "NY", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VA", "VT", "WA", "WI", "WV", "WY"]
-    var facingChoice : String = ""
+    let facingSelections = ["", "N","NE","E","SE","S","SW","W","NW"]
+    var facingChoice = 0
     var destinationChoiceName : String = ""
     var destinationChoiceLongitude : String = ""
     var destinationChoiceLatitude : String = ""
@@ -108,6 +104,8 @@ class WaxNavViewController: UIViewController, UITextFieldDelegate, UITableViewDe
         locations.dataSource = (self as UITableViewDataSource)
         gps.latitude = latitude
         gps.longitude = longitude
+        facingPicker.delegate = self
+        facingPicker.dataSource = self
 
         
     }
@@ -148,6 +146,7 @@ class WaxNavViewController: UIViewController, UITextFieldDelegate, UITableViewDe
             minAltitudeLabel.isHidden = false
             minAltitude.isHidden = false
         }
+        facingPicker.selectRow(facingChoice, inComponent: 0, animated: true)
       }
     
     func displayMyLocation() {
@@ -216,23 +215,6 @@ class WaxNavViewController: UIViewController, UITextFieldDelegate, UITableViewDe
         print("Display bearing")
     }
     
-    @objc func doneButtonTappedForFacingDirectionTextField() {
-        displayMyLocation()
-        facingChoice = facingDirection.text ?? ""
-        if facingDirections.contains(facingChoice) {
-            messageText.text = checkForChoiceConflicts()
-        } else {
-            facingChoice = ""
-            messageText.text = "Invalid facing direction. Valid choices: N, NE, E, SE, S, SW, W, NW"
-        }
-        if facingChoice == "" {
-            facingDirection.backgroundColor = UIColor.white
-        } else {
-            facingDirection.backgroundColor = UIColor.green
-        }
-
-        facingDirection.resignFirstResponder()
-    }
     @objc func doneButtonTappedForDistanceTextField() {
         displayMyLocation()
         distanceChoice = distance.text ?? ""
@@ -327,7 +309,7 @@ class WaxNavViewController: UIViewController, UITextFieldDelegate, UITableViewDe
                 minAltitudeChoice = String(gps.altitude)
             }
             sqlCommand.append(minAltitudeChoice)
-            sqlCommand.append(facingChoice)
+            sqlCommand.append(facingSelections[facingChoice])
             sqlCommand.append(distanceChoice)
             sqlCommand.append(String(latitude))     // my latitude
             sqlCommand.append(String(longitude))     // my longitude
@@ -354,7 +336,7 @@ class WaxNavViewController: UIViewController, UITextFieldDelegate, UITableViewDe
     
     func checkForChoiceConflicts() -> String {
         if destinationChoiceName != ""  || (destinationChoiceLatitude != "" && destinationChoiceLongitude != ""){
-            if facingChoice != "" {
+            if facingSelections[facingChoice] != "" {
                 return "Facing choice not valid when location name selected. Clear one of the choices."
             } else {
                 if bearingChoiceValue != "" {
@@ -362,13 +344,36 @@ class WaxNavViewController: UIViewController, UITextFieldDelegate, UITableViewDe
                 }
             }
         } else {
-            if facingChoice != "" && bearingChoiceValue != "" {
+            if facingSelections[facingChoice] != "" && bearingChoiceValue != "" {
                 return "Facing choice and bearing choices conflict. Clear one of the entries."
             }
         }
         return ""
     }
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
     
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return facingSelections.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return facingSelections[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        facingChoice = row
+        if facingChoice != 0 {
+            facingPicker.backgroundColor = UIColor.green
+        } else {
+            facingPicker.backgroundColor = UIColor.white
+        }
+
+    }
+    
+
+
 // class end
 }
 
