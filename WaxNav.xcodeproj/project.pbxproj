@@ -16,6 +16,7 @@
 		34CB4BAD23EF097F00C37DCA /* WaxNavUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CB4BAC23EF097F00C37DCA /* WaxNavUITests.swift */; };
 		34D6AE9723F6F833001EAE88 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34D6AE8923F6F794001EAE88 /* SQLite.framework */; };
 		34D6AE9823F6F833001EAE88 /* SQLite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 34D6AE8923F6F794001EAE88 /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		34DC4797242E4FB000EA96C7 /* WaxNavHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DC4796242E4FB000EA96C7 /* WaxNavHelp.swift */; };
 		34F30A7A23EF661300A1AD2B /* WaxNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F30A7923EF661300A1AD2B /* WaxNavViewController.swift */; };
 		34F30ABA23EF6FE800A1AD2B /* WaxUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34F30AB823EF6F3700A1AD2B /* WaxUtilities.framework */; };
 		34F30ABB23EF6FE800A1AD2B /* WaxUtilities.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 34F30AB823EF6F3700A1AD2B /* WaxUtilities.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -117,6 +118,7 @@
 		34CB4BAC23EF097F00C37DCA /* WaxNavUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaxNavUITests.swift; sourceTree = "<group>"; };
 		34CB4BAE23EF098000C37DCA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		34D6AE7E23F6F794001EAE88 /* SQLite.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SQLite.xcodeproj; path = ../../../SQLiteSwift/SQLite.swift.v5/SQLite.swift/SQLite.xcodeproj; sourceTree = "<group>"; };
+		34DC4796242E4FB000EA96C7 /* WaxNavHelp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaxNavHelp.swift; sourceTree = "<group>"; };
 		34F30A7923EF661300A1AD2B /* WaxNavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaxNavViewController.swift; sourceTree = "<group>"; };
 		34F30AB323EF6F3700A1AD2B /* WaxUtilities.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = WaxUtilities.xcodeproj; path = ../../../WaxCommonMethodsFramework/WaxUtilities/WaxUtilities.xcodeproj; sourceTree = "<group>"; };
 		34F30ABD23EF7BB700A1AD2B /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				34CB4B9B23EF097D00C37DCA /* Main.storyboard */,
 				34F30A7923EF661300A1AD2B /* WaxNavViewController.swift */,
 				34132AED24145D0400B4C798 /* WaxNavSettingsViewController.swift */,
+				34DC4796242E4FB000EA96C7 /* WaxNavHelp.swift */,
 				34F30ABD23EF7BB700A1AD2B /* Model.swift */,
 			);
 			path = WaxNav;
@@ -394,6 +397,7 @@
 				34F30ABE23EF7BB700A1AD2B /* Model.swift in Sources */,
 				34CB4B9623EF097D00C37DCA /* AppDelegate.swift in Sources */,
 				34F30A7A23EF661300A1AD2B /* WaxNavViewController.swift in Sources */,
+				34DC4797242E4FB000EA96C7 /* WaxNavHelp.swift in Sources */,
 				34132AEE24145D0400B4C798 /* WaxNavSettingsViewController.swift in Sources */,
 				34FCB1F123FEC7900040C9CC /* GIS.swift in Sources */,
 			);
