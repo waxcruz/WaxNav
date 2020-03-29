@@ -40,6 +40,7 @@ class WaxNavHelpViewController: UIViewController {
         7. You want to see all features around you. Clear all search fields. Optionally, set minimum altitude and maximum distance/n
 
         
+        
         """
         informationContent.scrollRangeToVisible(NSRange(location: 0, length: 0))
     }
