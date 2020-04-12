@@ -108,7 +108,7 @@
 /* Begin PBXFileReference section */
 		34132AED24145D0400B4C798 /* WaxNavSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaxNavSettingsViewController.swift; sourceTree = "<group>"; };
 		34136DBA23F8B1E40086F165 /* waxnav.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = waxnav.db; sourceTree = "<group>"; };
-		34CB4B9223EF097D00C37DCA /* GIS Features.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GIS Features.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		34CB4B9223EF097D00C37DCA /* where2look.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = where2look.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34CB4B9523EF097D00C37DCA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		34CB4B9C23EF097D00C37DCA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		34CB4B9E23EF097F00C37DCA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -158,7 +158,7 @@
 		34CB4B9323EF097D00C37DCA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				34CB4B9223EF097D00C37DCA /* GIS Features.app */,
+				34CB4B9223EF097D00C37DCA /* where2look.app */,
 				34CB4BA823EF097F00C37DCA /* WaxNavUITests.xctest */,
 			);
 			name = Products;
@@ -240,7 +240,7 @@
 			);
 			name = WaxNav;
 			productName = WaxNav;
-			productReference = 34CB4B9223EF097D00C37DCA /* GIS Features.app */;
+			productReference = 34CB4B9223EF097D00C37DCA /* where2look.app */;
 			productType = "com.apple.product-type.application";
 		};
 		34CB4BA723EF097F00C37DCA /* WaxNavUITests */ = {
@@ -560,7 +560,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = XZMW4PYK4Y;
 				INFOPLIST_FILE = WaxNav/Info.plist;
@@ -569,8 +569,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.waxcruz.WaxNav;
-				PRODUCT_NAME = "GIS Features";
+				PRODUCT_BUNDLE_IDENTIFIER = com.waxcruz.where2look;
+				PRODUCT_NAME = where2look;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -581,7 +581,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = XZMW4PYK4Y;
 				INFOPLIST_FILE = WaxNav/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
@@ -589,8 +589,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.waxcruz.WaxNav;
-				PRODUCT_NAME = "GIS Features";
+				PRODUCT_BUNDLE_IDENTIFIER = com.waxcruz.where2look;
+				PRODUCT_NAME = where2look;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
