@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		340EC60D2443CE44000CF42A /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340EC60C2443CE44000CF42A /* GlobalConstants.swift */; };
 		34132AEE24145D0400B4C798 /* WaxNavSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34132AED24145D0400B4C798 /* WaxNavSettingsViewController.swift */; };
 		34136DC323F8B1E40086F165 /* waxnav.db in Resources */ = {isa = PBXBuildFile; fileRef = 34136DBA23F8B1E40086F165 /* waxnav.db */; };
+		3474F0BD2443776D00E49F2D /* WaxNavSortViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3474F0BC2443776D00E49F2D /* WaxNavSortViewController.swift */; };
 		34CB4B9623EF097D00C37DCA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CB4B9523EF097D00C37DCA /* AppDelegate.swift */; };
 		34CB4B9D23EF097D00C37DCA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34CB4B9B23EF097D00C37DCA /* Main.storyboard */; };
 		34CB4B9F23EF097F00C37DCA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34CB4B9E23EF097F00C37DCA /* Assets.xcassets */; };
@@ -106,9 +108,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		340EC60C2443CE44000CF42A /* GlobalConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalConstants.swift; sourceTree = "<group>"; };
 		34132AED24145D0400B4C798 /* WaxNavSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaxNavSettingsViewController.swift; sourceTree = "<group>"; };
 		34136DBA23F8B1E40086F165 /* waxnav.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = waxnav.db; sourceTree = "<group>"; };
-		34CB4B9223EF097D00C37DCA /* where2look.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = where2look.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3474F0BC2443776D00E49F2D /* WaxNavSortViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaxNavSortViewController.swift; sourceTree = "<group>"; };
+		34CB4B9223EF097D00C37DCA /* Where2Look.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Where2Look.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34CB4B9523EF097D00C37DCA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		34CB4B9C23EF097D00C37DCA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		34CB4B9E23EF097F00C37DCA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -158,7 +162,7 @@
 		34CB4B9323EF097D00C37DCA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				34CB4B9223EF097D00C37DCA /* where2look.app */,
+				34CB4B9223EF097D00C37DCA /* Where2Look.app */,
 				34CB4BA823EF097F00C37DCA /* WaxNavUITests.xctest */,
 			);
 			name = Products;
@@ -179,7 +183,9 @@
 				34F30A7923EF661300A1AD2B /* WaxNavViewController.swift */,
 				34132AED24145D0400B4C798 /* WaxNavSettingsViewController.swift */,
 				34DC4796242E4FB000EA96C7 /* WaxNavHelp.swift */,
+				3474F0BC2443776D00E49F2D /* WaxNavSortViewController.swift */,
 				34F30ABD23EF7BB700A1AD2B /* Model.swift */,
+				340EC60C2443CE44000CF42A /* GlobalConstants.swift */,
 			);
 			path = WaxNav;
 			sourceTree = "<group>";
@@ -240,7 +246,7 @@
 			);
 			name = WaxNav;
 			productName = WaxNav;
-			productReference = 34CB4B9223EF097D00C37DCA /* where2look.app */;
+			productReference = 34CB4B9223EF097D00C37DCA /* Where2Look.app */;
 			productType = "com.apple.product-type.application";
 		};
 		34CB4BA723EF097F00C37DCA /* WaxNavUITests */ = {
@@ -395,10 +401,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				34F30ABE23EF7BB700A1AD2B /* Model.swift in Sources */,
+				3474F0BD2443776D00E49F2D /* WaxNavSortViewController.swift in Sources */,
 				34CB4B9623EF097D00C37DCA /* AppDelegate.swift in Sources */,
 				34F30A7A23EF661300A1AD2B /* WaxNavViewController.swift in Sources */,
 				34DC4797242E4FB000EA96C7 /* WaxNavHelp.swift in Sources */,
 				34132AEE24145D0400B4C798 /* WaxNavSettingsViewController.swift in Sources */,
+				340EC60D2443CE44000CF42A /* GlobalConstants.swift in Sources */,
 				34FCB1F123FEC7900040C9CC /* GIS.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -570,7 +578,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.waxcruz.where2look;
-				PRODUCT_NAME = where2look;
+				PRODUCT_NAME = Where2Look;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -590,7 +598,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.waxcruz.where2look;
-				PRODUCT_NAME = where2look;
+				PRODUCT_NAME = Where2Look;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

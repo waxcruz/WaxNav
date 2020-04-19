@@ -14,6 +14,7 @@ import WaxUtilities
 class Model  {
     
     static let model = Model()
+    static let myConstants = GlobalConstants()
     public var sqliteMessage :  String
     public static let waxnav : String = "waxnav"
     static var features = ["A":false, "H":false, "L":false, "P":false, "R":false, "S":false, "T":true, "U":false, "V":false, "X": false]
@@ -24,13 +25,21 @@ class Model  {
             defaults.set(featuresSelected,forKey: "WaxNavFeatureClassSelections")
         }
     }
-    static let noSettings = ["state" : "AZ", "tolerance" : "5", "altitude" : "True", "limit" : "1000"]
+    static let noSettings = ["state" : "CA", "tolerance" : "5", "altitude" : "True", "limit" : "1000"]
     public var settingsSelected = [String : String]() {
         didSet {
             let defaults = UserDefaults.standard
             defaults.set(settingsSelected, forKey: "WaxNavSettings")
         }
     }
+    public var sortOptionsSelected = [String : String]() {
+        didSet {
+            let defaults = UserDefaults.standard
+            defaults.set(sortOptionsSelected, forKey: "WaxNavSortOptions")
+        }
+    }
+    
+    
     //    sqlite> PRAGMA table_info(locations);
     //    0|location|Text|1||0
     //    1|latitude|Double|1||0
@@ -50,6 +59,7 @@ class Model  {
         sqliteMessage = ""
         self.loadFeatureSelections()
         self.loadSettingsSelected()
+        self.loadSortOptionsSelected()
     }
     
     func loadFeatureSelections() {
@@ -72,7 +82,26 @@ class Model  {
         }
     }
 
-    
+    func loadSortOptionsSelected() {
+        let defaults = UserDefaults.standard
+        let savedSortOptionsSelected = defaults.object(forKey: "WaxNavSortOptions") as? [String:String] ?? [String:String]()
+        if savedSortOptionsSelected.count == 0 {
+            let myConstants = GlobalConstants()
+            sortOptionsSelected = [
+                myConstants.sortLevelTypes[0] : myConstants.sortLevels[1],
+                myConstants.sortLevelTypes[1] : myConstants.sortLevels[0],
+                myConstants.sortLevelTypes[2] : myConstants.sortLevels[0],
+                myConstants.sortLevelTypes[3] : myConstants.sortLevels[0],
+                myConstants.sortDirectionTypes[0]: myConstants.sortDirections[1],
+                myConstants.sortDirectionTypes[1]: myConstants.sortDirections[0],
+                myConstants.sortDirectionTypes[2]: myConstants.sortDirections[0],
+                myConstants.sortDirectionTypes[3]: myConstants.sortDirections[0],
+            ]
+        } else {
+            sortOptionsSelected = savedSortOptionsSelected
+        }
+    }
+
     
     
     func isTransactionFilePresent(waxnav : String ) -> Bool {
@@ -258,7 +287,9 @@ class Model  {
                     filteredLocations.append(location)
                 }
             }
-            filteredLocations.sort { $0.distance < $1.distance }
+            
+            //filteredLocations.sort { $0.distance < $1.distance }
+            filteredLocations = orderGIS(gis: filteredLocations)
             return filteredLocations
         } else {
                 if bearing >= 0.00 {
@@ -268,14 +299,77 @@ class Model  {
                             filteredLocationsByBearing.append(location)
                         }
                     }
-                    filteredLocationsByBearing.sort { $0.distance < $1.distance }
+                    //filteredLocationsByBearing.sort { $0.distance < $1.distance }
+                    filteredLocationsByBearing = orderGIS(gis: filteredLocationsByBearing)
                     return filteredLocationsByBearing
                 } else {
-                    locationsGIS.sort {$0.distance < $1.distance}
+                    //locationsGIS.sort {$0.distance < $1.distance}
+                    locationsGIS = orderGIS(gis: locationsGIS)
                     return locationsGIS
                 }
         }
     }
+    
+    func orderGIS(gis : Array<GIS>)->Array<GIS> {
+        var sortLevelSelections = Dictionary<String, String>()
+        var sortDirectionSelections = Dictionary<String, String>()
+        // levevls
+        for i in 0...3 { // split sort options into level order and sort order
+            sortLevelSelections[Model.myConstants.sortLevelTypes[i]] =   self.sortOptionsSelected[Model.myConstants.sortLevelTypes[i]]
+        }
+        // Direction (ASC or DESC) order
+        for i in 0...3 { // split sort options into ASC or DESC order}
+            sortDirectionSelections[Model.myConstants.sortLevelTypes[i]] = self.sortOptionsSelected[Model.myConstants.sortDirectionTypes[i]]
+            }
+        var sortGIS = Array<GIS>()
+        sortGIS = gis // make a local copy for now
+        var reverseLevelLookup = Dictionary<String, String>()
+        for (swapKey, swapValue) in sortLevelSelections {
+            if "" == swapValue {
+                continue
+            }
+            reverseLevelLookup[swapValue] = swapKey
+        }
+        for myLevels in (1...4).reversed() {
+            if let levelName = reverseLevelLookup[String(myLevels)] { // match the selected level to one of the following: feature, distance, altitude, or bearing
+                let direction = sortDirectionSelections[levelName]
+                let switchToLevel = Model.myConstants.sortLevelTypes.firstIndex(of: levelName)
+                switch switchToLevel {
+                case 0:
+                    if "Asc" == direction {
+                        sortGIS.sort { $0.featureClass < $1.featureClass }
+                    } else {
+                        sortGIS.sort { $0.featureClass >= $1.featureClass }
+                    }
+                case 1:
+                    if "Asc" == direction {
+                         sortGIS.sort { $0.distance < $1.distance }
+                     } else {
+                         sortGIS.sort { $0.distance >= $1.distance }
+                     }
+                case 2:
+                    if "Asc" == direction {
+                         sortGIS.sort { $0.elevation < $1.elevation }
+                     } else {
+                         sortGIS.sort { $0.elevation >= $1.elevation }
+                     }
+                case 3:
+                    if "Asc" == direction {
+                        sortGIS.sort { $0.bearing < $1.bearing }
+                     } else {
+                         sortGIS.sort { $0.bearing >= $1.bearing }
+                     }
+                default:
+                    print("add code")
+                }
+
+            } else { // nothing chose to sort at this level
+                continue
+            }
+        }
+        return sortGIS
+    }
+    
     
     func buildFeatureList(selectedFeatures : [String : Bool])->String {
         var list = Array<String>()

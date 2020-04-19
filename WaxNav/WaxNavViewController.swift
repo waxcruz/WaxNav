@@ -99,7 +99,6 @@ class WaxNavViewController: UIViewController, UITextFieldDelegate, UITableViewDe
         copyright.text = (copyright.text ?? "????")+copyrightYear
         locationManager.requestWhenInUseAuthorization()
         locationManager.delegate = self
-        getLocation()
         locations.delegate = self
         locations.dataSource = (self as UITableViewDataSource)
         gps.latitude = latitude
@@ -114,7 +113,6 @@ class WaxNavViewController: UIViewController, UITextFieldDelegate, UITableViewDe
             latitude = location.coordinate.latitude
             longitude = location.coordinate.longitude
             altitude = location.altitude * 3.28084
-
          } else {
             latitude = 0.0
             longitude = 0.0
@@ -124,6 +122,7 @@ class WaxNavViewController: UIViewController, UITextFieldDelegate, UITableViewDe
         gps.latitude = latitude
         gps.longitude = longitude
         gps.altitude = altitude
+        displayMyLocation()
      }
      
      public func getLocation() {
@@ -135,6 +134,11 @@ class WaxNavViewController: UIViewController, UITextFieldDelegate, UITableViewDe
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(false)
+        if gps.latitude == 0.0 && gps.longitude == 0.0 {
+            print("No location available")
+            getLocation()
+            displayMyLocation()
+        }
         displayMyLocation()
         destinationBearing.text = ""
         let mySettings = model.settingsSelected

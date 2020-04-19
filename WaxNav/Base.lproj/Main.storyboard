@@ -3,7 +3,7 @@
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,7 +11,7 @@
         <!--Wax Nav View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="WaxNavViewController" customModule="where2look" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="WaxNavViewController" customModule="Where2Look" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -19,8 +19,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wjV-WE-XYV" userLabel="Header View">
                                 <rect key="frame" x="8" y="0.0" width="304" height="28.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="where2look" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9kN-Ji-FFG">
-                                        <rect key="frame" x="110" y="4.5" width="84.5" height="19.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Where2Look" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9kN-Ji-FFG">
+                                        <rect key="frame" x="106" y="4.5" width="92" height="19.5"/>
                                         <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -216,23 +216,30 @@
                                                 <rect key="frame" x="0.0" y="130" width="300" height="34"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" text="🔎" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MmB-hk-UJq" userLabel="Where">
-                                                        <rect key="frame" x="0.0" y="0.0" width="23.5" height="34"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="20.5" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter search name or lat/lon" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ksT-R6-9uC" userLabel="Location Text Field">
-                                                        <rect key="frame" x="28.5" y="0.0" width="230" height="34"/>
+                                                        <rect key="frame" x="25.5" y="0.0" width="202.5" height="34"/>
                                                         <accessibility key="accessibilityConfiguration" hint="enter location name or lat/lon"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                                     </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2u9-zQ-9dx">
-                                                        <rect key="frame" x="263.5" y="0.0" width="36.5" height="34"/>
+                                                        <rect key="frame" x="233" y="0.0" width="31" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="14"/>
                                                         <state key="normal" title="Go!"/>
                                                         <connections>
                                                             <action selector="goDisplay:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VjJ-wr-rsa"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="biT-7K-cOT">
+                                                        <rect key="frame" x="269" y="0.0" width="31" height="34"/>
+                                                        <state key="normal" title="Sort"/>
+                                                        <connections>
+                                                            <segue destination="Cok-NT-ajH" kind="showDetail" id="Sl9-C9-NeF"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -279,7 +286,7 @@
                                     </textView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="copyright @ Bill Weatherwax " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qJc-qz-9m9" userLabel="Copyright">
                                         <rect key="frame" x="2" y="36.5" width="312" height="18.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="8"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -344,10 +351,207 @@
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="106.47321428571428"/>
         </scene>
+        <!--Wax Nav Sort View Controller-->
+        <scene sceneID="RHg-b7-1Ab">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="Cok-NT-ajH" customClass="WaxNavSortViewController" customModule="Where2Look" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yCS-o7-TK8">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ojz-82-BjH" userLabel="Header View">
+                                <rect key="frame" x="2" y="2" width="316" height="55"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aM2-GC-Qm3">
+                                        <rect key="frame" x="2" y="2" width="47.5" height="51"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <state key="normal" title="◀️"/>
+                                        <connections>
+                                            <action selector="goBack:" destination="Cok-NT-ajH" eventType="primaryActionTriggered" id="1ah-0l-bmq"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sort Selections" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vBO-UI-7LF">
+                                        <rect key="frame" x="100" y="17" width="116.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tZp-rI-caO" userLabel="Clear Button">
+                                        <rect key="frame" x="247.5" y="12" width="47.5" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <state key="normal" title="↩️"/>
+                                        <connections>
+                                            <action selector="clearSelections:" destination="Cok-NT-ajH" eventType="touchUpInside" id="bmL-4z-T1V"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="tZp-rI-caO" firstAttribute="width" secondItem="Ojz-82-BjH" secondAttribute="width" multiplier="0.15" id="3ad-zz-BCz"/>
+                                    <constraint firstItem="vBO-UI-7LF" firstAttribute="centerX" secondItem="Ojz-82-BjH" secondAttribute="centerX" id="4SF-aG-Lb1"/>
+                                    <constraint firstAttribute="bottom" secondItem="aM2-GC-Qm3" secondAttribute="bottom" constant="2" id="SLt-1U-31M"/>
+                                    <constraint firstAttribute="trailing" secondItem="tZp-rI-caO" secondAttribute="trailing" constant="21" id="Sid-DX-AbK"/>
+                                    <constraint firstItem="aM2-GC-Qm3" firstAttribute="leading" secondItem="Ojz-82-BjH" secondAttribute="leading" constant="2" id="jse-wb-dNa"/>
+                                    <constraint firstAttribute="bottom" secondItem="tZp-rI-caO" secondAttribute="bottom" constant="13" id="kI7-QZ-vuf"/>
+                                    <constraint firstItem="aM2-GC-Qm3" firstAttribute="width" secondItem="Ojz-82-BjH" secondAttribute="width" multiplier="0.15" id="m0i-2E-f3o"/>
+                                    <constraint firstItem="tZp-rI-caO" firstAttribute="top" secondItem="Ojz-82-BjH" secondAttribute="top" constant="12" id="ntc-W5-l6N"/>
+                                    <constraint firstItem="vBO-UI-7LF" firstAttribute="centerY" secondItem="Ojz-82-BjH" secondAttribute="centerY" id="w0e-AP-R4a"/>
+                                    <constraint firstItem="aM2-GC-Qm3" firstAttribute="top" secondItem="Ojz-82-BjH" secondAttribute="top" constant="2" id="yST-HX-tcx"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F1q-Jn-MlU" userLabel="Content View">
+                                <rect key="frame" x="2" y="59" width="316" height="328.5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="7Am-Vp-Bqj" userLabel="Selections">
+                                        <rect key="frame" x="2" y="2" width="312" height="324.5"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="5Zd-bk-LRe" userLabel="Feature Selection">
+                                                <rect key="frame" x="0.0" y="0.0" width="312" height="81"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feature" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uai-XB-s5B">
+                                                        <rect key="frame" x="0.0" y="0.0" width="104" height="81"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vJv-dE-dca" userLabel="Feature Level Picker">
+                                                        <rect key="frame" x="104" y="0.0" width="104" height="81"/>
+                                                    </pickerView>
+                                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cmv-tY-SAd" userLabel="Feature Sort Order">
+                                                        <rect key="frame" x="208" y="0.0" width="104" height="81"/>
+                                                    </pickerView>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="icX-gN-Cpt" userLabel="Distance Selection">
+                                                <rect key="frame" x="0.0" y="81" width="312" height="81"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PcK-1c-dRo" userLabel="Distance">
+                                                        <rect key="frame" x="0.0" y="0.0" width="104" height="81"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ohL-j2-fFB" userLabel="Distance Level Picker">
+                                                        <rect key="frame" x="104" y="0.0" width="104" height="81"/>
+                                                    </pickerView>
+                                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y6T-Vk-tNw" userLabel="Distance Sort Order">
+                                                        <rect key="frame" x="208" y="0.0" width="104" height="81"/>
+                                                    </pickerView>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="hS7-6G-v3l" userLabel="Altitude Selection">
+                                                <rect key="frame" x="0.0" y="162" width="312" height="81.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Altitude" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9WM-WO-WpO" userLabel="Altitude">
+                                                        <rect key="frame" x="0.0" y="0.0" width="104" height="81.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J1r-Ir-zhP" userLabel="Altitude Level Picker">
+                                                        <rect key="frame" x="104" y="0.0" width="104" height="81.5"/>
+                                                    </pickerView>
+                                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ti2-eM-vkW" userLabel="Altitude Sort Order">
+                                                        <rect key="frame" x="208" y="0.0" width="104" height="81.5"/>
+                                                    </pickerView>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="8us-CG-W5P" userLabel="Bearing Selection">
+                                                <rect key="frame" x="0.0" y="243.5" width="312" height="81"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bearing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LmO-17-6I8" userLabel="Bearing">
+                                                        <rect key="frame" x="0.0" y="0.0" width="104" height="81"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b0e-Ae-QG1" userLabel="Bearing Level Picker">
+                                                        <rect key="frame" x="104" y="0.0" width="104" height="81"/>
+                                                    </pickerView>
+                                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c4A-tR-oZ5" userLabel="Bearing Level Sort Order">
+                                                        <rect key="frame" x="208" y="0.0" width="104" height="81"/>
+                                                    </pickerView>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="7Am-Vp-Bqj" secondAttribute="bottom" constant="2" id="7Si-1w-5Bc"/>
+                                    <constraint firstItem="7Am-Vp-Bqj" firstAttribute="leading" secondItem="F1q-Jn-MlU" secondAttribute="leading" constant="2" id="dRS-NE-HBH"/>
+                                    <constraint firstAttribute="trailing" secondItem="7Am-Vp-Bqj" secondAttribute="trailing" constant="2" id="fHM-Er-kHy"/>
+                                    <constraint firstItem="7Am-Vp-Bqj" firstAttribute="top" secondItem="F1q-Jn-MlU" secondAttribute="top" constant="2" id="uru-bk-aXU"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xBm-sz-Zml" userLabel="Footer View">
+                                <rect key="frame" x="2" y="436.5" width="316" height="109.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5I6-p7-cnE" userLabel="message">
+                                        <rect key="frame" x="2" y="2" width="312" height="82"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="copyright @ Bill Weatherwax " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H7J-fk-fYb">
+                                        <rect key="frame" x="2" y="80" width="312" height="27.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="8"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="5I6-p7-cnE" firstAttribute="height" secondItem="xBm-sz-Zml" secondAttribute="height" multiplier="0.75" id="7lA-IW-Gr4"/>
+                                    <constraint firstItem="H7J-fk-fYb" firstAttribute="height" secondItem="xBm-sz-Zml" secondAttribute="height" multiplier="0.25" id="Ibb-TY-oBO"/>
+                                    <constraint firstAttribute="trailing" secondItem="5I6-p7-cnE" secondAttribute="trailing" constant="2" id="Pyb-g8-V8d"/>
+                                    <constraint firstAttribute="trailing" secondItem="H7J-fk-fYb" secondAttribute="trailing" constant="2" id="SAa-iZ-OG6"/>
+                                    <constraint firstItem="H7J-fk-fYb" firstAttribute="leading" secondItem="xBm-sz-Zml" secondAttribute="leading" constant="2" id="Xlx-tv-baJ"/>
+                                    <constraint firstItem="5I6-p7-cnE" firstAttribute="top" secondItem="xBm-sz-Zml" secondAttribute="top" constant="2" id="af2-GJ-Qi5"/>
+                                    <constraint firstItem="5I6-p7-cnE" firstAttribute="leading" secondItem="xBm-sz-Zml" secondAttribute="leading" constant="2" id="gSb-dx-Mm0"/>
+                                    <constraint firstAttribute="bottom" secondItem="H7J-fk-fYb" secondAttribute="bottom" constant="2" id="t5v-2w-hlf"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="EHB-4i-AqW" firstAttribute="bottom" secondItem="xBm-sz-Zml" secondAttribute="bottom" constant="2" id="17H-3Q-ZyC"/>
+                            <constraint firstItem="xBm-sz-Zml" firstAttribute="leading" secondItem="EHB-4i-AqW" secondAttribute="leading" constant="2" id="5OO-yr-BH8"/>
+                            <constraint firstItem="Ojz-82-BjH" firstAttribute="top" secondItem="EHB-4i-AqW" secondAttribute="top" constant="2" id="E3V-dd-vav"/>
+                            <constraint firstItem="Ojz-82-BjH" firstAttribute="leading" secondItem="EHB-4i-AqW" secondAttribute="leading" constant="2" id="S56-Fu-MVE"/>
+                            <constraint firstItem="F1q-Jn-MlU" firstAttribute="height" secondItem="EHB-4i-AqW" secondAttribute="height" multiplier="0.6" id="Unc-vg-3ru"/>
+                            <constraint firstItem="F1q-Jn-MlU" firstAttribute="top" secondItem="Ojz-82-BjH" secondAttribute="bottom" constant="2" id="YXx-3A-xET"/>
+                            <constraint firstItem="EHB-4i-AqW" firstAttribute="trailing" secondItem="Ojz-82-BjH" secondAttribute="trailing" constant="2" id="eqz-hG-dHy"/>
+                            <constraint firstItem="Ojz-82-BjH" firstAttribute="height" secondItem="EHB-4i-AqW" secondAttribute="height" multiplier="0.1" id="gaH-Sd-Nmo"/>
+                            <constraint firstItem="F1q-Jn-MlU" firstAttribute="leading" secondItem="EHB-4i-AqW" secondAttribute="leading" constant="2" id="ogP-5w-qvB"/>
+                            <constraint firstItem="xBm-sz-Zml" firstAttribute="height" secondItem="EHB-4i-AqW" secondAttribute="height" multiplier="0.2" id="q8E-wC-1Ce"/>
+                            <constraint firstItem="EHB-4i-AqW" firstAttribute="trailing" secondItem="xBm-sz-Zml" secondAttribute="trailing" constant="2" id="qgp-5W-jSv"/>
+                            <constraint firstItem="EHB-4i-AqW" firstAttribute="trailing" secondItem="F1q-Jn-MlU" secondAttribute="trailing" constant="2" id="yN0-Fa-T27"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="EHB-4i-AqW"/>
+                    </view>
+                    <connections>
+                        <outlet property="altitudeLevel" destination="J1r-Ir-zhP" id="yxk-lr-CQJ"/>
+                        <outlet property="altitudeSortOrder" destination="ti2-eM-vkW" id="qjw-dG-2Sj"/>
+                        <outlet property="back" destination="aM2-GC-Qm3" id="1Yv-lP-Ejp"/>
+                        <outlet property="bearingLevel" destination="b0e-Ae-QG1" id="gP6-Am-STo"/>
+                        <outlet property="bearingSortOrder" destination="c4A-tR-oZ5" id="igG-Rl-U4q"/>
+                        <outlet property="copyright" destination="H7J-fk-fYb" id="1sz-w7-X2J"/>
+                        <outlet property="distanceLevel" destination="ohL-j2-fFB" id="Jpa-w1-3SN"/>
+                        <outlet property="distanceSortOrder" destination="Y6T-Vk-tNw" id="xEO-LM-ZOy"/>
+                        <outlet property="featureLevel" destination="vJv-dE-dca" id="m2P-z7-c8t"/>
+                        <outlet property="featureSortOrder" destination="Cmv-tY-SAd" id="ngc-Ho-1jp"/>
+                        <outlet property="message" destination="5I6-p7-cnE" id="wfT-x9-n0Y"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ThK-hy-Pgf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="152" y="920"/>
+        </scene>
         <!--Wax Nav Settings View Controller-->
         <scene sceneID="rGJ-25-ZMo">
             <objects>
-                <viewController id="nwr-WG-oYS" userLabel="Wax Nav Settings View Controller" customClass="WaxNavSettingsViewController" customModule="where2look" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="nwr-WG-oYS" userLabel="Wax Nav Settings View Controller" customClass="WaxNavSettingsViewController" customModule="Where2Look" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rHb-25-QWV">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -705,7 +909,7 @@
         <!--Wax Nav Help View Controller-->
         <scene sceneID="LtR-sN-zXz">
             <objects>
-                <viewController id="yKx-Nt-qJp" customClass="WaxNavHelpViewController" customModule="where2look" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="yKx-Nt-qJp" customClass="WaxNavHelpViewController" customModule="Where2Look" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Cca-cM-2Hp">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -757,9 +961,9 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5dS-XD-W4l" userLabel="Footer View">
                                 <rect key="frame" x="2" y="518.5" width="316" height="27.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="copyright" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tpT-Bh-8Uv" userLabel="copyright">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="copyright @ Bill Weatherwax " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tpT-Bh-8Uv" userLabel="copyright">
                                         <rect key="frame" x="2" y="2" width="312" height="23.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="8"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -791,6 +995,7 @@
                         <viewLayoutGuide key="safeArea" id="p79-H3-vZU"/>
                     </view>
                     <connections>
+                        <outlet property="copyright" destination="tpT-Bh-8Uv" id="q5x-6D-LbP"/>
                         <outlet property="informationContent" destination="Pv2-pB-bMQ" id="Ycc-Rd-dAs"/>
                     </connections>
                 </viewController>

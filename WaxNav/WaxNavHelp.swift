@@ -8,11 +8,18 @@
 
 import Foundation
 import UIKit
+import WaxUtilities
 
 class WaxNavHelpViewController: UIViewController {
     @IBOutlet weak var informationContent: UITextView!
+    @IBOutlet weak var copyright: UILabel!
+    // local
+        var copyrightYear : String = ""
+    
     
     override func viewDidLoad() {
+        copyrightYear = WaxDates.year()
+        copyright.text = (copyright.text ?? "????")+copyrightYear
         informationContent.text =
         """
         Warning!

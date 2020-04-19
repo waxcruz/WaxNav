@@ -24,7 +24,7 @@ let locationManager = CLLocationManager()
         // Override point for customization after application launch.
         let model = Model.model
         if model.isTransactionFilePresent(waxnav: waxnavDatabaseName) {
-            print("Succes! waxnav.db accessible")
+            print("Success! waxnav.db accessible")
             print(model.sqliteMessage)
         } else {
             print(model.sqliteMessage)
