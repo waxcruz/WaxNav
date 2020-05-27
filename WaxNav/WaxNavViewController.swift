@@ -14,9 +14,6 @@ import CoreLocation
 
 class WaxNavViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     
-
-    
-    
 // display fields
     @IBOutlet weak var destinationBearing: UILabel!
     @IBOutlet weak var destinationAltitude: UILabel!
@@ -105,8 +102,27 @@ class WaxNavViewController: UIViewController, UITextFieldDelegate, UITableViewDe
         gps.longitude = longitude
         facingPicker.delegate = self
         facingPicker.dataSource = self
-
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(userDefaultsDidChange), name: UserDefaults.didChangeNotification, object: nil)
+    }
+    
+    @objc func userDefaultsDidChange(_ notification: Notification) {
+        let currentMinAltitudeChoice = minAltitude.isHidden ? "True" : "False"
+        let mySettings = model.settingsSelected
+        let useMyAltitudeChoice = mySettings["altitude"]
+        if currentMinAltitudeChoice != useMyAltitudeChoice {
+            if useMyAltitudeChoice == "True" {
+                minAltitudeLabel.isHidden = true
+                minAltitude.isHidden = true
+            } else {
+                minAltitudeLabel.isHidden = false
+                minAltitude.isHidden = false
+            }
+            minAltitude.setNeedsDisplay()
+        }
+    }
+    	
+    override func viewDidDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self, name: UserDefaults.didChangeNotification, object: nil)
     }
      public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
          if let location : CLLocation = locations.last {
