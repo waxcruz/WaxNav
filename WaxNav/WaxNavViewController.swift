@@ -19,6 +19,7 @@ class WaxNavViewController: UIViewController, UITextFieldDelegate, UITableViewDe
     @IBOutlet weak var destinationAltitude: UILabel!
     @IBOutlet weak var copyright: UILabel!
     @IBOutlet weak var currentPosition: UILabel!
+    @IBOutlet weak var currentAltitude: UILabel!
     @IBOutlet weak var heading: UILabel!
     @IBOutlet weak var messageText: UITextView!
     
@@ -87,7 +88,7 @@ class WaxNavViewController: UIViewController, UITextFieldDelegate, UITableViewDe
     var longitude : Double = 0.0
     var altitude : Double = 0.0
     var stateChoice : String = ""
-    
+    let degreeSymbol = "º"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -170,7 +171,10 @@ class WaxNavViewController: UIViewController, UITextFieldDelegate, UITableViewDe
       }
     
     func displayMyLocation() {
-        currentPosition.text = String(format: "Current position is %.3f (lat) : %.3f (lon) at %@", latitude, longitude, WaxNumberFormatting.doubleWithSeparator(myNumber: altitude))
+        let latQualifier = degreeSymbol + (latitude > 0.0 ? "N" : "S")
+        let lonQualitier = degreeSymbol + (longitude > 0.0 ? "E" : "W")
+        currentPosition.text = String(format: "%.2f%@ %.2f%@", latitude, latQualifier, longitude, lonQualitier)
+        currentAltitude.text = WaxNumberFormatting.doubleWithSeparator(myNumber: altitude) + "'"
         messageText.text = ""
     }
 
