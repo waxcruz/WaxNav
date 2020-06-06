@@ -190,8 +190,6 @@ class WaxNavViewController: UIViewController, UITextFieldDelegate, UITableViewDe
         } else {
             let headingText = String(format: "%0.fº",locationManager.heading?.trueHeading ?? 0.0)
             heading.text = headingText
-            bearingChoiceValue = String(format: "%0.f",locationManager.heading?.trueHeading ?? 0.0)
-
         }
     }
     
@@ -199,9 +197,11 @@ class WaxNavViewController: UIViewController, UITextFieldDelegate, UITableViewDe
         if compassLock.backgroundColor == UIColor.red {
             compassLock.backgroundColor = UIColor.white
             heading.backgroundColor = UIColor.white
+            bearingChoiceValue = ""
             locationManager.startUpdatingHeading()
         } else {
             compassLock.backgroundColor = UIColor.red
+            bearingChoiceValue = String(format: "%0.f",locationManager.heading?.trueHeading ?? 0.0)
             locationManager.stopUpdatingHeading()
             heading.backgroundColor = UIColor.green;
 	
@@ -215,7 +215,9 @@ class WaxNavViewController: UIViewController, UITextFieldDelegate, UITableViewDe
 //    }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // display bearing and elevation
-        destinationAltitude.text = String(format: "altitude: %0.0f,  topo map distance: %0.2f",results[indexPath.row].elevation, results[indexPath.row].distance)
+        destinationAltitude.text = String(format: "altitude: %@,  topo map distance: %0.2f",
+                                          WaxNumberFormatting.doubleWithSeparator(myNumber: results[indexPath.row].elevation),
+                                          results[indexPath.row].distance)
         destinationBearing.text = String(format:"Bearing to location %0.0fº",results[indexPath.row].bearing)
     }
     
