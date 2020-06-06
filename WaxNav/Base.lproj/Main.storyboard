@@ -100,19 +100,45 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="X3v-2h-scm" userLabel="Destination Stack View">
                                         <rect key="frame" x="8" y="8" width="382" height="82"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bearing ? degrees" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bbn-FU-Qja" userLabel="Destination Bearing 360 degrees">
-                                                <rect key="frame" x="0.0" y="0.0" width="382" height="41"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start your search. Make a selection" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YRI-T8-nYE" userLabel="Destination Altitude">
-                                                <rect key="frame" x="0.0" y="41" width="382" height="41"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="382" height="27.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="iPM-JS-2jC" userLabel="Compass View">
+                                                <rect key="frame" x="0.0" y="27.5" width="382" height="27"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JcF-QR-EnJ">
+                                                        <rect key="frame" x="0.0" y="0.0" width="150" height="27"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <state key="normal" title="🧭 Heading Search"/>
+                                                        <connections>
+                                                            <action selector="setCompass:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GJr-Ob-zr7"/>
+                                                        </connections>
+                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="180" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iL4-VS-Js6" userLabel="Heading">
+                                                        <rect key="frame" x="205.5" y="0.0" width="32.5" height="27"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="      " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Bv-tO-w1R">
+                                                        <rect key="frame" x="355.5" y="0.0" width="26.5" height="27"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bearing ? degrees" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bbn-FU-Qja" userLabel="Destination Bearing 360 degrees">
+                                                <rect key="frame" x="0.0" y="54.5" width="382" height="27.5"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
+                                        <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -124,81 +150,29 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eOu-mn-fgh" userLabel="Location name or lat/lon">
-                                <rect key="frame" x="8" y="199" width="398" height="170"/>
+                                <rect key="frame" x="8" y="199" width="398" height="138"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="XEj-X0-7C2" userLabel="Altitude and Location Stack View">
-                                        <rect key="frame" x="2" y="2" width="394" height="166"/>
+                                        <rect key="frame" x="2" y="2" width="394" height="134"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="iPM-JS-2jC" userLabel="Compass View">
-                                                <rect key="frame" x="0.0" y="0.0" width="394" height="50"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZBW-AC-RIc">
-                                                        <rect key="frame" x="0.0" y="0.0" width="78" height="50"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <state key="normal" title="Heading 🎯"/>
-                                                        <connections>
-                                                            <action selector="sightCompass:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="4gy-Zo-gPm"/>
-                                                            <action selector="sightCompass:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EEP-JH-n1o"/>
-                                                        </connections>
-                                                    </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iL4-VS-Js6" userLabel="Heading">
-                                                        <rect key="frame" x="111.5" y="0.0" width="50" height="50"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JcF-QR-EnJ">
-                                                        <rect key="frame" x="195" y="0.0" width="46" height="50"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <state key="normal" title="Set ✅"/>
-                                                        <connections>
-                                                            <action selector="setCompass:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GJr-Ob-zr7"/>
-                                                        </connections>
-                                                    </button>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ODE-Eb-cdS" userLabel="Bearing Choice">
-                                                        <rect key="frame" x="274.5" y="0.0" width="32" height="50"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                                    </textField>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zPj-Wl-9gt">
-                                                        <rect key="frame" x="340" y="0.0" width="54" height="50"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <state key="normal" title="Stop ❌"/>
-                                                        <connections>
-                                                            <action selector="stopCompass:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nfL-OJ-KaL"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                            </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lrY-Tn-Xx8" userLabel="Options View">
-                                                <rect key="frame" x="0.0" y="52" width="394" height="40"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="394" height="60"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Facing Picker" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bX9-ua-DL1" userLabel="Facing">
-                                                        <rect key="frame" x="0.0" y="0.0" width="86" height="40"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Compass Rose Point Search (90º Scan)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bX9-ua-DL1" userLabel="Facing">
+                                                        <rect key="frame" x="0.0" y="0.0" width="319" height="60"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <pickerView contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="z2B-au-G4f" userLabel="Facing Picker View">
-                                                        <rect key="frame" x="86" y="0.0" width="60" height="40"/>
+                                                        <rect key="frame" x="319" y="0.0" width="60" height="60"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="60" id="9mf-hl-gRp"/>
-                                                            <constraint firstAttribute="height" constant="40" id="ySN-05-9qp"/>
+                                                            <constraint firstAttribute="height" constant="60" id="ySN-05-9qp"/>
                                                         </constraints>
                                                     </pickerView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Min Alt. (feet)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uTg-OS-OJt" userLabel="Min Alt">
-                                                        <rect key="frame" x="146" y="0.0" width="88.5" height="40"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="n18-LI-mp1" userLabel="Min Altitude Value">
-                                                        <rect key="frame" x="234.5" y="0.0" width="155" height="40"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                                    </textField>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDB-mS-bM4" userLabel="filler">
-                                                        <rect key="frame" x="389.5" y="0.0" width="4.5" height="40"/>
+                                                        <rect key="frame" x="379" y="0.0" width="15" height="60"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -206,41 +180,58 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xYg-jJ-knw" userLabel="Limit View">
-                                                <rect key="frame" x="0.0" y="94" width="394" height="34"/>
+                                                <rect key="frame" x="0.0" y="62" width="394" height="34"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="240" verticalHuggingPriority="240" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" text="Limit (Miles)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nPs-xI-AR8" userLabel="Max Distance">
-                                                        <rect key="frame" x="0.0" y="0.0" width="125" height="34"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="80" height="34"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="125" id="rT2-EM-Ajt"/>
+                                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="80" id="rT2-EM-Ajt"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="10" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="25" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="pJm-He-kP8" userLabel="Max Distance Value">
-                                                        <rect key="frame" x="125" y="0.0" width="269" height="34"/>
+                                                        <rect key="frame" x="80" y="0.0" width="60" height="34"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="60" id="rHI-Rq-YaQ"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                    </textField>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Min Alt. (feet)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KjW-D6-pCe" userLabel="Min Alt">
+                                                        <rect key="frame" x="140" y="0.0" width="100" height="34"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="100" id="4WW-dD-GlN"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="MsI-lo-Cen" userLabel="Min Altitude Value">
+                                                        <rect key="frame" x="240" y="0.0" width="154" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="CTg-2d-KBz" userLabel="Location Action View">
-                                                <rect key="frame" x="0.0" y="130" width="394" height="36"/>
+                                                <rect key="frame" x="0.0" y="98" width="394" height="36"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" text="🔎" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MmB-hk-UJq" userLabel="Where">
-                                                        <rect key="frame" x="0.0" y="0.0" width="26.5" height="36"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" text="🔎Name Search" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MmB-hk-UJq" userLabel="Where">
+                                                        <rect key="frame" x="0.0" y="0.0" width="109.5" height="36"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter search name or lat/lon" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ksT-R6-9uC" userLabel="Location Text Field">
-                                                        <rect key="frame" x="31.5" y="0.0" width="261.5" height="36"/>
+                                                        <rect key="frame" x="114.5" y="0.0" width="202.5" height="36"/>
                                                         <accessibility key="accessibilityConfiguration" hint="enter location name or lat/lon"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                                     </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2u9-zQ-9dx">
-                                                        <rect key="frame" x="298" y="0.0" width="40" height="36"/>
+                                                        <rect key="frame" x="322" y="0.0" width="31" height="36"/>
                                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="14"/>
                                                         <state key="normal" title="Go!"/>
                                                         <connections>
@@ -248,7 +239,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="biT-7K-cOT">
-                                                        <rect key="frame" x="343" y="0.0" width="51" height="36"/>
+                                                        <rect key="frame" x="358" y="0.0" width="36" height="36"/>
                                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
                                                         <state key="normal" title="⇣⇡">
                                                             <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -270,7 +261,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZeZ-PW-io3" userLabel="Location Selections View">
-                                <rect key="frame" x="8" y="371" width="398" height="818"/>
+                                <rect key="frame" x="8" y="339" width="398" height="818"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wUo-Hg-hLU" userLabel="Locations Table View">
                                         <rect key="frame" x="2" y="0.0" width="394" height="289"/>
@@ -344,7 +335,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="bearingChoice" destination="ODE-Eb-cdS" id="ieh-2C-Ytg"/>
+                        <outlet property="compassLock" destination="JcF-QR-EnJ" id="Dow-GP-ArT"/>
                         <outlet property="copyright" destination="qJc-qz-9m9" id="6wz-k4-PNR"/>
                         <outlet property="currentAltitude" destination="DCt-nO-MmL" id="9e4-pl-uTd"/>
                         <outlet property="currentPosition" destination="j1y-yf-py5" id="P1d-WH-ptg"/>
@@ -358,8 +349,8 @@
                         <outlet property="locations" destination="wUo-Hg-hLU" id="zwz-At-ciH"/>
                         <outlet property="maxDistanceLabel" destination="nPs-xI-AR8" id="V6f-iQ-cNS"/>
                         <outlet property="messageText" destination="awx-8y-rqG" id="LHb-nA-MTM"/>
-                        <outlet property="minAltitude" destination="n18-LI-mp1" id="P6V-ki-uz6"/>
-                        <outlet property="minAltitudeLabel" destination="uTg-OS-OJt" id="G1c-L1-0J4"/>
+                        <outlet property="minAltitude" destination="MsI-lo-Cen" id="ZzX-0p-w8b"/>
+                        <outlet property="minAltitudeLabel" destination="KjW-D6-pCe" id="g7f-o2-7cV"/>
                         <outlet property="searchLabel" destination="MmB-hk-UJq" id="WGR-ob-qVn"/>
                     </connections>
                 </viewController>

@@ -26,20 +26,18 @@ class WaxNavViewController: UIViewController, UITextFieldDelegate, UITableViewDe
 // labels of input fields for highlighting use
     @IBOutlet weak var facingLabel: UILabel!
     @IBOutlet weak var minAltitudeLabel: UILabel!
+    
+    
     @IBOutlet weak var maxDistanceLabel: UILabel!
     @IBOutlet weak var searchLabel: UILabel!
     
+    @IBOutlet weak var compassLock: UIButton!
     
     
 // input fields
     
     @IBOutlet weak var facingPicker: UIPickerView!
     
-    @IBOutlet weak var bearingChoice: UITextField!{
-        didSet {
-            bearingChoice?.addDoneCancelToolbar(onDone: (target: self, action: #selector(doneButtonTappedForBearingChoiceTextField)))
-        }
-    }
     
     @IBOutlet weak var distance: UITextField! {
         didSet {
@@ -48,14 +46,12 @@ class WaxNavViewController: UIViewController, UITextFieldDelegate, UITableViewDe
     }
     
     
-   
-
-    
-    @IBOutlet weak var minAltitude: UITextField! {
+    @IBOutlet weak var minAltitude: UITextField!{
         didSet {
             minAltitude?.addDoneCancelToolbar(onDone: (target: self, action: #selector(doneButtonTappedForMinAltitudeTextField)))
         }
     }
+    
     
     @IBOutlet weak var destinationName: UITextField!{
         didSet {
@@ -89,6 +85,7 @@ class WaxNavViewController: UIViewController, UITextFieldDelegate, UITableViewDe
     var altitude : Double = 0.0
     var stateChoice : String = ""
     let degreeSymbol = "º"
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -104,6 +101,9 @@ class WaxNavViewController: UIViewController, UITextFieldDelegate, UITableViewDe
         facingPicker.delegate = self
         facingPicker.dataSource = self
         NotificationCenter.default.addObserver(self, selector: #selector(userDefaultsDidChange), name: UserDefaults.didChangeNotification, object: nil)
+        compassLock.backgroundColor = UIColor.white
+        locationManager.startUpdatingHeading()
+
     }
     
     @objc func userDefaultsDidChange(_ notification: Notification) {
@@ -182,32 +182,33 @@ class WaxNavViewController: UIViewController, UITextFieldDelegate, UITableViewDe
         getLocation()
         displayMyLocation()
     }
-    @IBAction func sightCompass(_ sender: Any) {
-        locationManager.startUpdatingHeading()
-        locationManager.startUpdatingLocation()
-        displayMyLocation()
-    }
+
     
     func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
-        let headingText = String(format: "%0.fº",locationManager.heading?.trueHeading ?? 0.0)
-        heading.text = headingText
-        bearingChoice.text = String(format: "%0.f",locationManager.heading?.trueHeading ?? 0.0)
-        bearingChoiceValue = bearingChoice.text ?? ""
-        // locationManager.stopUpdatingHeading()
+        if compassLock.backgroundColor == UIColor.red {
+            return
+        } else {
+            let headingText = String(format: "%0.fº",locationManager.heading?.trueHeading ?? 0.0)
+            heading.text = headingText
+            bearingChoiceValue = String(format: "%0.f",locationManager.heading?.trueHeading ?? 0.0)
+
+        }
     }
     
     @IBAction func setCompass(_ sender: Any) {
-        bearingChoiceValue = bearingChoice.text ?? ""
+        if compassLock.backgroundColor == UIColor.red {
+            compassLock.backgroundColor = UIColor.white
+            heading.backgroundColor = UIColor.white
+            locationManager.startUpdatingHeading()
+        } else {
+            compassLock.backgroundColor = UIColor.red
+            locationManager.stopUpdatingHeading()
+            heading.backgroundColor = UIColor.green;
+	
+        }
         messageText.text = checkForChoiceConflicts()
     }
     
-    @IBAction func stopCompass(_ sender: Any) {
-        heading.text = ""
-        bearingChoice.text = ""
-        bearingChoice.backgroundColor = UIColor.white
-        bearingChoiceValue = ""
-        locationManager.stopUpdatingHeading()
-    }
     
 //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        print("Selected location: ", results[indexPath.row])
@@ -266,19 +267,7 @@ class WaxNavViewController: UIViewController, UITextFieldDelegate, UITableViewDe
         minAltitude.resignFirstResponder()
     }
 
- 
-    @objc func doneButtonTappedForBearingChoiceTextField() {
-        bearingChoice.resignFirstResponder()
-        displayMyLocation()
-        bearingChoiceValue = bearingChoice.text ?? ""
-        if bearingChoiceValue == "" {
-            bearingChoice.backgroundColor = UIColor.white
-        } else {
-            bearingChoice.backgroundColor = UIColor.green
-        }
-        messageText.text = checkForChoiceConflicts()
-    }
-
+  
     @objc func doneButtonTappedForDestinationNameTextField() {
         destinationName.resignFirstResponder()
         destinationChoiceName = destinationName.text!
