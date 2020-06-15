@@ -103,6 +103,7 @@ class WaxNavViewController: UIViewController, UITextFieldDelegate, UITableViewDe
         NotificationCenter.default.addObserver(self, selector: #selector(userDefaultsDidChange), name: UserDefaults.didChangeNotification, object: nil)
         compassLock.backgroundColor = UIColor.white
         locationManager.startUpdatingHeading()
+        distanceChoice = distance.text ?? "5"
 
     }
     
@@ -245,16 +246,6 @@ class WaxNavViewController: UIViewController, UITextFieldDelegate, UITableViewDe
     @objc func doneButtonTappedForDistanceTextField() {
         displayMyLocation()
         distanceChoice = distance.text ?? ""
-        if distanceChoice == "" {
-            distance.backgroundColor = UIColor.white
-        } else {
-            distance.backgroundColor = UIColor.green
-        }
-        if distanceChoice == "" {
-            distance.backgroundColor = UIColor.white
-        } else {
-            distance.backgroundColor = UIColor.green
-        }
         distance.resignFirstResponder()
     }
     

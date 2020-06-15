@@ -169,7 +169,6 @@ class Model  {
                 if command[3] != "" {
                     distanceLimit = Double(command[3])!
                 }
-                distanceLimit /= 60.0
                 var searchWords = ""
                 if command[0].contains("%") {
                     searchWords = command[0]
@@ -181,25 +180,26 @@ class Model  {
                 if command[8] != "" {
                     bearing = Double(command[8])!
                 }
+                let limitSQL = settingsSelected["limit"] ?? "100"
                 bearingTolerance = Double(settingsSelected["tolerance"] ?? "5")!
-                let limitCount = settingsSelected["limit"] ?? "1000"
+                let distanceLimitInDegrees = distanceLimit/60
                 var minLat = myLat
                 var maxLat = myLat
                 var minLon = myLon
                 var maxLon = myLon
                 if myLat < 0.0 {
-                    minLat += distanceLimit
-                    maxLat -= distanceLimit
+                    minLat += distanceLimitInDegrees
+                    maxLat -= distanceLimitInDegrees
                 } else {
-                    minLat -= distanceLimit
-                    maxLat += distanceLimit
+                    minLat -= distanceLimitInDegrees
+                    maxLat += distanceLimitInDegrees
                 }
                 if myLon < 0.0 {
-                    minLon += distanceLimit
-                    maxLon -= distanceLimit
+                    minLon += distanceLimitInDegrees
+                    maxLon -= distanceLimitInDegrees
                 } else {
-                    minLon -= distanceLimit
-                    maxLon += distanceLimit
+                    minLon -= distanceLimitInDegrees
+                    maxLon += distanceLimitInDegrees
                 }
                 if minLon > maxLon {
                     let temp = maxLon
@@ -217,26 +217,26 @@ class Model  {
                 let useFeatures = buildFeatureList(selectedFeatures: featuresSelected)
                 var isFTS5Search = true
                 if searchWords != ""  && facingDirection == ""  && (!(searchWords.contains("%"))){
-                    sqlStatement = String(format: "select * from point p inner join locations l on l.rowid = p.locationRowID where point match %@ and featureClass in %@ and latitude between %f and %f and longitude between %f and %f and elevation >= %f LIMIT %d", searchWords, useFeatures, minLat, maxLat, minLon, maxLon, minAltitudeLimit, limitCount)
+                    sqlStatement = String(format: "select * from point p inner join locations l on l.rowid = p.locationRowID where point match %@ and featureClass in %@ and latitude between %f and %f and longitude between %f and %f and elevation >= %f LIMIT %@", searchWords, useFeatures, minLat, maxLat, minLon, maxLon, minAltitudeLimit, limitSQL)
                 } else {
                     isFTS5Search = false
                     // searches are full searches or searches with a state index
                     if searchWords == "" {
                         if state != "" {
                             // use state index
-                            sqlStatement = String(format: "select * from locations where featureClass in %@ and state = %@ and latitude between %f and %f and longitude between %f and %f and elevation >= %f LIMIT %d", useFeatures, state, minLat, maxLat, minLon, maxLon, minAltitudeLimit, limitCount)
+                            sqlStatement = String(format: "select * from locations where featureClass in %@ and state = %@ and latitude between %f and %f and longitude between %f and %f and elevation >= %f LIMIT %@", useFeatures, state, minLat, maxLat, minLon, maxLon, minAltitudeLimit, limitSQL)
                         } else {
                             // full database search
-                            sqlStatement = String(format: "select * from locations where featureClass in %@ and latitude between %f and %f and longitude between %f and %f and elevation >= %f LIMIT %d", useFeatures, minLat, maxLat, minLon, maxLon, minAltitudeLimit, limitCount)
+                            sqlStatement = String(format: "select * from locations where featureClass in %@ and latitude between %f and %f and longitude between %f and %f and elevation >= %f LIMIT %@", useFeatures, minLat, maxLat, minLon, maxLon, minAltitudeLimit, limitSQL)
                         }
                     } else {
                         if state != "" {
                             // use state index
-                            sqlStatement = String(format: "select * from locations where featureClass in %@ and state = %@ and location like '%@' and latitude between %f and %f and longitude between %f and %f and elevation >= %f LIMIT %d",useFeatures ,state, searchWords, minLat, maxLat, minLon, maxLon, minAltitudeLimit, limitCount)
+                            sqlStatement = String(format: "select * from locations where featureClass in %@ and state = %@ and location like '%@' and latitude between %f and %f and longitude between %f and %f and elevation >= %f LIMIT %@",useFeatures ,state, searchWords, minLat, maxLat, minLon, maxLon, minAltitudeLimit, limitSQL)
                             isFTS5Search = false
                         } else {
                             // full database search
-                            sqlStatement = String(format: "select * from locations where featureClass in %@ and location like '%@' and latitude between %f and %f and longitude between %f and %f and elevation >= %f LIMIT %d",useFeatures ,searchWords, minLat, maxLat, minLon, maxLon, minAltitudeLimit, limitCount)
+                            sqlStatement = String(format: "select * from locations where featureClass in %@ and location like '%@' and latitude between %f and %f and longitude between %f and %f and elevation >= %f LIMIT %@",useFeatures ,searchWords, minLat, maxLat, minLon, maxLon, minAltitudeLimit, limitSQL)
                             isFTS5Search = false
                         }
                     }
@@ -272,7 +272,9 @@ class Model  {
                                   distance: 60*(gps.calculateDistance(originLat: myLat, originLon: myLon, destinationLat: matchedLatitude, destinationLon: matchedLongitude)),
                                   bearing: gps.bearing(destinationLat: matchedLatitude, destinationLon: matchedLongitude)
                         )
-                    locationsGIS.append(gis)
+                    if gis.distance < distanceLimit {
+                        locationsGIS.append(gis)
+                    }
 
                 }
             } catch  {
@@ -283,7 +285,7 @@ class Model  {
         if facingDirection != "" && bearing < 0.00 {
             var filteredLocations = Array<GIS>()
             for location in locationsGIS {
-                if gps.isInFieldOfView(facingDirection: facingDirection, distanceInDegrees: distanceLimit, meLat: myLat, meLon: myLon, locationLat: location.latitude, locationLon: location.longitude) {
+                if gps.isInFieldOfView(facingDirection: facingDirection, toleranceInDegrees: bearingTolerance, meLat: myLat, meLon: myLon, locationLat: location.latitude, locationLon: location.longitude) {
                     filteredLocations.append(location)
                 }
             }

@@ -98,7 +98,7 @@ class WaxNavSettingsViewController: UIViewController, UITextFieldDelegate, UIPic
 
     @objc func doneButtonTappedForSelectLimit() {
         updateSettingsChoices(settingsKey: "limit", settingsValue: selectLimit.text ?? "1000")
-        toleranceFieldOfView.resignFirstResponder()
+        selectLimit.resignFirstResponder()
     }
 
     
