@@ -172,9 +172,10 @@ class WaxNavViewController: UIViewController, UITextFieldDelegate, UITableViewDe
       }
     
     func displayMyLocation() {
-        let latQualifier = degreeSymbol + (latitude > 0.0 ? "N" : "S")
-        let lonQualitier = degreeSymbol + (longitude > 0.0 ? "E" : "W")
-        currentPosition.text = String(format: "%.2f%@ %.2f%@", latitude, latQualifier, longitude, lonQualitier)
+//        let latQualifier = degreeSymbol + (latitude > 0.0 ? "N" : "S")
+//        let lonQualitier = degreeSymbol + (longitude > 0.0 ? "E" : "W")
+        currentPosition.text = self.gps.positionLatLon()
+            //String(format: "%.2f%@ %.2f%@", latitude, latQualifier, longitude, lonQualitier)
         currentAltitude.text = WaxNumberFormatting.doubleWithSeparator(myNumber: altitude) + "'"
         messageText.text = ""
     }
@@ -233,7 +234,7 @@ class WaxNavViewController: UIViewController, UITextFieldDelegate, UITableViewDe
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "locationCellReuseIdentifier")!
         let gis = results[indexPath.row]
-        cell.textLabel?.text = String(format:"%@ (%0.0f)",gis.location, gis.elevation)
+        cell.textLabel?.text = String(format:"%@ (%0.0fº, %0.0f miles, %@')",gis.location, gis.bearing, gis.distance,  WaxNumberFormatting.doubleWithSeparator(myNumber: gis.elevation))
         return cell
     }
     

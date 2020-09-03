@@ -3,21 +3,19 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		19F1B31F93C1270470E0F05A /* Pods_WaxNav.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BD4797B32F05468E7533E59 /* Pods_WaxNav.framework */; };
 		340EC60D2443CE44000CF42A /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340EC60C2443CE44000CF42A /* GlobalConstants.swift */; };
 		34132AEE24145D0400B4C798 /* WaxNavSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34132AED24145D0400B4C798 /* WaxNavSettingsViewController.swift */; };
 		34136DC323F8B1E40086F165 /* waxnav.db in Resources */ = {isa = PBXBuildFile; fileRef = 34136DBA23F8B1E40086F165 /* waxnav.db */; };
 		3474F0BD2443776D00E49F2D /* WaxNavSortViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3474F0BC2443776D00E49F2D /* WaxNavSortViewController.swift */; };
+		34B2DBAF250161D30095CFA2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34B2DBAD250161D30095CFA2 /* Main.storyboard */; };
+		34B2DBB1250161E50095CFA2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34B2DBB0250161E50095CFA2 /* LaunchScreen.storyboard */; };
 		34CB4B9623EF097D00C37DCA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CB4B9523EF097D00C37DCA /* AppDelegate.swift */; };
-		34CB4B9D23EF097D00C37DCA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34CB4B9B23EF097D00C37DCA /* Main.storyboard */; };
 		34CB4B9F23EF097F00C37DCA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34CB4B9E23EF097F00C37DCA /* Assets.xcassets */; };
-		34CB4BA223EF097F00C37DCA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34CB4BA023EF097F00C37DCA /* LaunchScreen.storyboard */; };
-		34CB4BAD23EF097F00C37DCA /* WaxNavUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CB4BAC23EF097F00C37DCA /* WaxNavUITests.swift */; };
-		34D6AE9723F6F833001EAE88 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34D6AE8923F6F794001EAE88 /* SQLite.framework */; };
-		34D6AE9823F6F833001EAE88 /* SQLite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 34D6AE8923F6F794001EAE88 /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		34DC4797242E4FB000EA96C7 /* WaxNavHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DC4796242E4FB000EA96C7 /* WaxNavHelp.swift */; };
 		34F30A7A23EF661300A1AD2B /* WaxNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F30A7923EF661300A1AD2B /* WaxNavViewController.swift */; };
 		34F30ABA23EF6FE800A1AD2B /* WaxUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34F30AB823EF6F3700A1AD2B /* WaxUtilities.framework */; };
@@ -27,62 +25,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		34CB4BA923EF097F00C37DCA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 34CB4B8A23EF097D00C37DCA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 34CB4B9123EF097D00C37DCA;
-			remoteInfo = WaxNav;
-		};
-		34D6AE8823F6F794001EAE88 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 34D6AE7E23F6F794001EAE88 /* SQLite.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = EE247AD31C3F04ED00AE3E12;
-			remoteInfo = "SQLite iOS";
-		};
-		34D6AE8A23F6F794001EAE88 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 34D6AE7E23F6F794001EAE88 /* SQLite.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = EE247ADD1C3F04ED00AE3E12;
-			remoteInfo = "SQLiteTests iOS";
-		};
-		34D6AE8C23F6F794001EAE88 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 34D6AE7E23F6F794001EAE88 /* SQLite.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = EE247B3C1C3F3ED000AE3E12;
-			remoteInfo = "SQLite Mac";
-		};
-		34D6AE8E23F6F794001EAE88 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 34D6AE7E23F6F794001EAE88 /* SQLite.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = EE247B451C3F3ED000AE3E12;
-			remoteInfo = "SQLiteTests Mac";
-		};
-		34D6AE9023F6F794001EAE88 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 34D6AE7E23F6F794001EAE88 /* SQLite.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 03A65E5A1C6BB0F50062603F;
-			remoteInfo = "SQLite tvOS";
-		};
-		34D6AE9223F6F794001EAE88 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 34D6AE7E23F6F794001EAE88 /* SQLite.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 03A65E631C6BB0F60062603F;
-			remoteInfo = "SQLiteTests tvOS";
-		};
-		34D6AE9423F6F794001EAE88 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 34D6AE7E23F6F794001EAE88 /* SQLite.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = A121AC451CA35C79005A31D1;
-			remoteInfo = "SQLite watchOS";
-		};
 		34F30AB723EF6F3700A1AD2B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 34F30AB323EF6F3700A1AD2B /* WaxUtilities.xcodeproj */;
@@ -99,7 +41,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				34D6AE9823F6F833001EAE88 /* SQLite.framework in Embed Frameworks */,
 				34F30ABB23EF6FE800A1AD2B /* WaxUtilities.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -108,25 +49,27 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1BD4797B32F05468E7533E59 /* Pods_WaxNav.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WaxNav.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		340EC60C2443CE44000CF42A /* GlobalConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalConstants.swift; sourceTree = "<group>"; };
 		34132AED24145D0400B4C798 /* WaxNavSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaxNavSettingsViewController.swift; sourceTree = "<group>"; };
 		34136DBA23F8B1E40086F165 /* waxnav.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = waxnav.db; sourceTree = "<group>"; };
 		3474F0BC2443776D00E49F2D /* WaxNavSortViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaxNavSortViewController.swift; sourceTree = "<group>"; };
+		34B2DBAD250161D30095CFA2 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		34B2DBB0250161E50095CFA2 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		34CB4B9223EF097D00C37DCA /* Where2Look.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Where2Look.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34CB4B9523EF097D00C37DCA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		34CB4B9C23EF097D00C37DCA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		34CB4B9E23EF097F00C37DCA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		34CB4BA123EF097F00C37DCA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		34CB4BA323EF097F00C37DCA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		34CB4BA823EF097F00C37DCA /* WaxNavUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WaxNavUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		34CB4BAC23EF097F00C37DCA /* WaxNavUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaxNavUITests.swift; sourceTree = "<group>"; };
-		34CB4BAE23EF098000C37DCA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		34D6AE7E23F6F794001EAE88 /* SQLite.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SQLite.xcodeproj; path = ../../../SQLiteSwift/SQLite.swift.v5/SQLite.swift/SQLite.xcodeproj; sourceTree = "<group>"; };
 		34DC4796242E4FB000EA96C7 /* WaxNavHelp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaxNavHelp.swift; sourceTree = "<group>"; };
 		34F30A7923EF661300A1AD2B /* WaxNavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaxNavViewController.swift; sourceTree = "<group>"; };
 		34F30AB323EF6F3700A1AD2B /* WaxUtilities.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = WaxUtilities.xcodeproj; path = ../../../WaxCommonMethodsFramework/WaxUtilities/WaxUtilities.xcodeproj; sourceTree = "<group>"; };
 		34F30ABD23EF7BB700A1AD2B /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		34FCB1F023FEC7900040C9CC /* GIS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIS.swift; sourceTree = "<group>"; };
+		5CBEDB22BBA2D2B79C2A919D /* Pods_WaxNav_WaxNavUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WaxNav_WaxNavUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		89A9523114F8A457420B0096 /* Pods-WaxNav.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WaxNav.release.xcconfig"; path = "Target Support Files/Pods-WaxNav/Pods-WaxNav.release.xcconfig"; sourceTree = "<group>"; };
+		95AD9DA6BDD51DDB2AF61035 /* Pods-WaxNav-WaxNavUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WaxNav-WaxNavUITests.release.xcconfig"; path = "Target Support Files/Pods-WaxNav-WaxNavUITests/Pods-WaxNav-WaxNavUITests.release.xcconfig"; sourceTree = "<group>"; };
+		9E64CE0D5AAC880E24420C25 /* Pods-WaxNav.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WaxNav.debug.xcconfig"; path = "Target Support Files/Pods-WaxNav/Pods-WaxNav.debug.xcconfig"; sourceTree = "<group>"; };
+		A85037D297D59A30B5D48933 /* Pods-WaxNav-WaxNavUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WaxNav-WaxNavUITests.debug.xcconfig"; path = "Target Support Files/Pods-WaxNav-WaxNavUITests/Pods-WaxNav-WaxNavUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,28 +77,32 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34D6AE9723F6F833001EAE88 /* SQLite.framework in Frameworks */,
 				34F30ABA23EF6FE800A1AD2B /* WaxUtilities.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		34CB4BA523EF097F00C37DCA /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				19F1B31F93C1270470E0F05A /* Pods_WaxNav.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		21D08129D8A8270B0CEB878A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9E64CE0D5AAC880E24420C25 /* Pods-WaxNav.debug.xcconfig */,
+				89A9523114F8A457420B0096 /* Pods-WaxNav.release.xcconfig */,
+				A85037D297D59A30B5D48933 /* Pods-WaxNav-WaxNavUITests.debug.xcconfig */,
+				95AD9DA6BDD51DDB2AF61035 /* Pods-WaxNav-WaxNavUITests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		34CB4B8923EF097D00C37DCA = {
 			isa = PBXGroup;
 			children = (
 				34CB4B9423EF097D00C37DCA /* WaxNav */,
-				34CB4BAB23EF097F00C37DCA /* WaxNavUITests */,
 				34CB4B9323EF097D00C37DCA /* Products */,
 				34F30AB923EF6FE800A1AD2B /* Frameworks */,
+				21D08129D8A8270B0CEB878A /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -163,7 +110,6 @@
 			isa = PBXGroup;
 			children = (
 				34CB4B9223EF097D00C37DCA /* Where2Look.app */,
-				34CB4BA823EF097F00C37DCA /* WaxNavUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -171,15 +117,14 @@
 		34CB4B9423EF097D00C37DCA /* WaxNav */ = {
 			isa = PBXGroup;
 			children = (
+				34B2DBB0250161E50095CFA2 /* LaunchScreen.storyboard */,
+				34B2DBAD250161D30095CFA2 /* Main.storyboard */,
 				34136DBA23F8B1E40086F165 /* waxnav.db */,
-				34D6AE7E23F6F794001EAE88 /* SQLite.xcodeproj */,
 				34F30AB323EF6F3700A1AD2B /* WaxUtilities.xcodeproj */,
 				34CB4B9523EF097D00C37DCA /* AppDelegate.swift */,
 				34CB4B9E23EF097F00C37DCA /* Assets.xcassets */,
-				34CB4BA023EF097F00C37DCA /* LaunchScreen.storyboard */,
 				34CB4BA323EF097F00C37DCA /* Info.plist */,
 				34FCB1F023FEC7900040C9CC /* GIS.swift */,
-				34CB4B9B23EF097D00C37DCA /* Main.storyboard */,
 				34F30A7923EF661300A1AD2B /* WaxNavViewController.swift */,
 				34132AED24145D0400B4C798 /* WaxNavSettingsViewController.swift */,
 				34DC4796242E4FB000EA96C7 /* WaxNavHelp.swift */,
@@ -188,29 +133,6 @@
 				340EC60C2443CE44000CF42A /* GlobalConstants.swift */,
 			);
 			path = WaxNav;
-			sourceTree = "<group>";
-		};
-		34CB4BAB23EF097F00C37DCA /* WaxNavUITests */ = {
-			isa = PBXGroup;
-			children = (
-				34CB4BAC23EF097F00C37DCA /* WaxNavUITests.swift */,
-				34CB4BAE23EF098000C37DCA /* Info.plist */,
-			);
-			path = WaxNavUITests;
-			sourceTree = "<group>";
-		};
-		34D6AE7F23F6F794001EAE88 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				34D6AE8923F6F794001EAE88 /* SQLite.framework */,
-				34D6AE8B23F6F794001EAE88 /* SQLiteTests iOS.xctest */,
-				34D6AE8D23F6F794001EAE88 /* SQLite.framework */,
-				34D6AE8F23F6F794001EAE88 /* SQLiteTests Mac.xctest */,
-				34D6AE9123F6F794001EAE88 /* SQLite.framework */,
-				34D6AE9323F6F794001EAE88 /* SQLiteTests tvOS.xctest */,
-				34D6AE9523F6F794001EAE88 /* SQLite.framework */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		34F30AB423EF6F3700A1AD2B /* Products */ = {
@@ -224,6 +146,8 @@
 		34F30AB923EF6FE800A1AD2B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1BD4797B32F05468E7533E59 /* Pods_WaxNav.framework */,
+				5CBEDB22BBA2D2B79C2A919D /* Pods_WaxNav_WaxNavUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -235,10 +159,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 34CB4BB123EF098000C37DCA /* Build configuration list for PBXNativeTarget "WaxNav" */;
 			buildPhases = (
+				4854F72CAA86A0A7A56004BD /* [CP] Check Pods Manifest.lock */,
 				34CB4B8E23EF097D00C37DCA /* Sources */,
 				34CB4B8F23EF097D00C37DCA /* Frameworks */,
 				34CB4B9023EF097D00C37DCA /* Resources */,
 				34F30ABC23EF6FE800A1AD2B /* Embed Frameworks */,
+				04304584B49C59138BC33739 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -248,24 +174,6 @@
 			productName = WaxNav;
 			productReference = 34CB4B9223EF097D00C37DCA /* Where2Look.app */;
 			productType = "com.apple.product-type.application";
-		};
-		34CB4BA723EF097F00C37DCA /* WaxNavUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 34CB4BB423EF098000C37DCA /* Build configuration list for PBXNativeTarget "WaxNavUITests" */;
-			buildPhases = (
-				34CB4BA423EF097F00C37DCA /* Sources */,
-				34CB4BA523EF097F00C37DCA /* Frameworks */,
-				34CB4BA623EF097F00C37DCA /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				34CB4BAA23EF097F00C37DCA /* PBXTargetDependency */,
-			);
-			name = WaxNavUITests;
-			productName = WaxNavUITests;
-			productReference = 34CB4BA823EF097F00C37DCA /* WaxNavUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
@@ -279,10 +187,6 @@
 				TargetAttributes = {
 					34CB4B9123EF097D00C37DCA = {
 						CreatedOnToolsVersion = 11.3.1;
-					};
-					34CB4BA723EF097F00C37DCA = {
-						CreatedOnToolsVersion = 11.3.1;
-						TestTargetID = 34CB4B9123EF097D00C37DCA;
 					};
 				};
 			};
@@ -299,10 +203,6 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 34D6AE7F23F6F794001EAE88 /* Products */;
-					ProjectRef = 34D6AE7E23F6F794001EAE88 /* SQLite.xcodeproj */;
-				},
-				{
 					ProductGroup = 34F30AB423EF6F3700A1AD2B /* Products */;
 					ProjectRef = 34F30AB323EF6F3700A1AD2B /* WaxUtilities.xcodeproj */;
 				},
@@ -310,61 +210,11 @@
 			projectRoot = "";
 			targets = (
 				34CB4B9123EF097D00C37DCA /* WaxNav */,
-				34CB4BA723EF097F00C37DCA /* WaxNavUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		34D6AE8923F6F794001EAE88 /* SQLite.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SQLite.framework;
-			remoteRef = 34D6AE8823F6F794001EAE88 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		34D6AE8B23F6F794001EAE88 /* SQLiteTests iOS.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "SQLiteTests iOS.xctest";
-			remoteRef = 34D6AE8A23F6F794001EAE88 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		34D6AE8D23F6F794001EAE88 /* SQLite.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SQLite.framework;
-			remoteRef = 34D6AE8C23F6F794001EAE88 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		34D6AE8F23F6F794001EAE88 /* SQLiteTests Mac.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "SQLiteTests Mac.xctest";
-			remoteRef = 34D6AE8E23F6F794001EAE88 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		34D6AE9123F6F794001EAE88 /* SQLite.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SQLite.framework;
-			remoteRef = 34D6AE9023F6F794001EAE88 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		34D6AE9323F6F794001EAE88 /* SQLiteTests tvOS.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "SQLiteTests tvOS.xctest";
-			remoteRef = 34D6AE9223F6F794001EAE88 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		34D6AE9523F6F794001EAE88 /* SQLite.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SQLite.framework;
-			remoteRef = 34D6AE9423F6F794001EAE88 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		34F30AB823EF6F3700A1AD2B /* WaxUtilities.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -379,21 +229,56 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34CB4BA223EF097F00C37DCA /* LaunchScreen.storyboard in Resources */,
+				34B2DBAF250161D30095CFA2 /* Main.storyboard in Resources */,
 				34CB4B9F23EF097F00C37DCA /* Assets.xcassets in Resources */,
+				34B2DBB1250161E50095CFA2 /* LaunchScreen.storyboard in Resources */,
 				34136DC323F8B1E40086F165 /* waxnav.db in Resources */,
-				34CB4B9D23EF097D00C37DCA /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		34CB4BA623EF097F00C37DCA /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		04304584B49C59138BC33739 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WaxNav/Pods-WaxNav-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WaxNav/Pods-WaxNav-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WaxNav/Pods-WaxNav-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4854F72CAA86A0A7A56004BD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WaxNav-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		34CB4B8E23EF097D00C37DCA /* Sources */ = {
@@ -411,42 +296,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		34CB4BA423EF097F00C37DCA /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				34CB4BAD23EF097F00C37DCA /* WaxNavUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		34CB4BAA23EF097F00C37DCA /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 34CB4B9123EF097D00C37DCA /* WaxNav */;
-			targetProxy = 34CB4BA923EF097F00C37DCA /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		34CB4B9B23EF097D00C37DCA /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				34CB4B9C23EF097D00C37DCA /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		34CB4BA023EF097F00C37DCA /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				34CB4BA123EF097F00C37DCA /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		34CB4BAF23EF098000C37DCA /* Debug */ = {
@@ -565,7 +415,9 @@
 		};
 		34CB4BB223EF098000C37DCA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9E64CE0D5AAC880E24420C25 /* Pods-WaxNav.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -587,7 +439,9 @@
 		};
 		34CB4BB323EF098000C37DCA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 89A9523114F8A457420B0096 /* Pods-WaxNav.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -603,46 +457,6 @@
 				PRODUCT_NAME = Where2Look;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Release;
-		};
-		34CB4BB523EF098000C37DCA /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XZMW4PYK4Y;
-				INFOPLIST_FILE = WaxNavUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.waxcruz.WaxNavUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = WaxNav;
-			};
-			name = Debug;
-		};
-		34CB4BB623EF098000C37DCA /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XZMW4PYK4Y;
-				INFOPLIST_FILE = WaxNavUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.waxcruz.WaxNavUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = WaxNav;
 			};
 			name = Release;
 		};
@@ -663,15 +477,6 @@
 			buildConfigurations = (
 				34CB4BB223EF098000C37DCA /* Debug */,
 				34CB4BB323EF098000C37DCA /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		34CB4BB423EF098000C37DCA /* Build configuration list for PBXNativeTarget "WaxNavUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				34CB4BB523EF098000C37DCA /* Debug */,
-				34CB4BB623EF098000C37DCA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
