@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 
-class WaxNavSettingsViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+class WaxNavSettingsViewController: UIViewController, UITextFieldDelegate {
     
     // selections
     @IBOutlet weak var featureA: UISwitch!
@@ -24,7 +24,6 @@ class WaxNavSettingsViewController: UIViewController, UITextFieldDelegate, UIPic
     @IBOutlet weak var featureV: UISwitch!
     @IBOutlet weak var featureX: UISwitch!
     @IBOutlet weak var useMyCurrentAltitude: UISwitch!
-    @IBOutlet weak var statePicker: UIPickerView!
     
     
     // input fields
@@ -45,7 +44,6 @@ class WaxNavSettingsViewController: UIViewController, UITextFieldDelegate, UIPic
     // local
     let model = Model.model
     var featureSwitches = Array<UISwitch>()
-    let states = ["AK", "AL", "AR", "AZ", "CA", "CO", "CT", "DC", "DE", "FL", "GA", "HI", "IA", "ID", "IL", "IN", "KS", "KY", "LA", "MA", "MD", "ME", "MI", "MN", "MO", "MS", "MT", "NC", "ND", "NE", "NH", "NJ", "NM", "NV", "NY", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VA", "VT", "WA", "WI", "WV", "WY"]
 
     override func viewDidLoad() {
         // each switch feature's tag is used as index so place switches in the tag value order
@@ -59,8 +57,6 @@ class WaxNavSettingsViewController: UIViewController, UITextFieldDelegate, UIPic
         featureSwitches.append(featureU)
         featureSwitches.append(featureV)
         featureSwitches.append(featureX)
-        statePicker.delegate = self
-        statePicker.dataSource = self
     }
     
     
@@ -73,8 +69,6 @@ class WaxNavSettingsViewController: UIViewController, UITextFieldDelegate, UIPic
         let selectedSettings = model.settingsSelected
         toleranceFieldOfView.text = selectedSettings["tolerance"]
         useMyCurrentAltitude.isOn = selectedSettings["altitude"] == "True" ? true : false
-        let stateIndex = states.firstIndex(of: selectedSettings["state"] ?? "CA")
-        statePicker.selectRow(stateIndex ?? 0, inComponent: 0, animated: true)
     }
     
     // feature selected
@@ -113,22 +107,6 @@ class WaxNavSettingsViewController: UIViewController, UITextFieldDelegate, UIPic
         useMyCurrentAltitude.resignFirstResponder()
     }
     
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        let state = states[row]
-        updateSettingsChoices(settingsKey: "state", settingsValue: state)
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return states.count
-    }
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return states[row]
-    }
 
     	
 }

@@ -85,7 +85,7 @@ class WaxNavViewController: UIViewController, UITextFieldDelegate, UITableViewDe
     var altitude : Double = 0.0
     var stateChoice : String = ""
     let degreeSymbol = "º"
-
+    var isStateListSet = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -131,11 +131,15 @@ class WaxNavViewController: UIViewController, UITextFieldDelegate, UITableViewDe
             latitude = location.coordinate.latitude
             longitude = location.coordinate.longitude
             altitude = location.altitude * 3.28084
+            if !isStateListSet {
+                model.limitStates(distance: 50.0, currentLat: latitude, currentLon: longitude)
+                isStateListSet = true
+            }
          } else {
             latitude = 0.0
             longitude = 0.0
             altitude = 0.0
-         }
+         }               
         locationManager.stopUpdatingLocation()
         gps.latitude = latitude
         gps.longitude = longitude

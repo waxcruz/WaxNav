@@ -11,6 +11,7 @@
 		340EC60D2443CE44000CF42A /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340EC60C2443CE44000CF42A /* GlobalConstants.swift */; };
 		34132AEE24145D0400B4C798 /* WaxNavSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34132AED24145D0400B4C798 /* WaxNavSettingsViewController.swift */; };
 		34136DC323F8B1E40086F165 /* waxnav.db in Resources */ = {isa = PBXBuildFile; fileRef = 34136DBA23F8B1E40086F165 /* waxnav.db */; };
+		3422C9652506FEAD00A2E281 /* LatLonBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3422C9642506FEAD00A2E281 /* LatLonBox.swift */; };
 		3474F0BD2443776D00E49F2D /* WaxNavSortViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3474F0BC2443776D00E49F2D /* WaxNavSortViewController.swift */; };
 		34B2DBAF250161D30095CFA2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34B2DBAD250161D30095CFA2 /* Main.storyboard */; };
 		34B2DBB1250161E50095CFA2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34B2DBB0250161E50095CFA2 /* LaunchScreen.storyboard */; };
@@ -53,6 +54,7 @@
 		340EC60C2443CE44000CF42A /* GlobalConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalConstants.swift; sourceTree = "<group>"; };
 		34132AED24145D0400B4C798 /* WaxNavSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaxNavSettingsViewController.swift; sourceTree = "<group>"; };
 		34136DBA23F8B1E40086F165 /* waxnav.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = waxnav.db; sourceTree = "<group>"; };
+		3422C9642506FEAD00A2E281 /* LatLonBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatLonBox.swift; sourceTree = "<group>"; };
 		3474F0BC2443776D00E49F2D /* WaxNavSortViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaxNavSortViewController.swift; sourceTree = "<group>"; };
 		34B2DBAD250161D30095CFA2 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		34B2DBB0250161E50095CFA2 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				3474F0BC2443776D00E49F2D /* WaxNavSortViewController.swift */,
 				34F30ABD23EF7BB700A1AD2B /* Model.swift */,
 				340EC60C2443CE44000CF42A /* GlobalConstants.swift */,
+				3422C9642506FEAD00A2E281 /* LatLonBox.swift */,
 			);
 			path = WaxNav;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				34F30ABE23EF7BB700A1AD2B /* Model.swift in Sources */,
+				3422C9652506FEAD00A2E281 /* LatLonBox.swift in Sources */,
 				3474F0BD2443776D00E49F2D /* WaxNavSortViewController.swift in Sources */,
 				34CB4B9623EF097D00C37DCA /* AppDelegate.swift in Sources */,
 				34F30A7A23EF661300A1AD2B /* WaxNavViewController.swift in Sources */,

@@ -25,7 +25,7 @@ class Model  {
             defaults.set(featuresSelected,forKey: "WaxNavFeatureClassSelections")
         }
     }
-    static let noSettings = ["state" : "CA", "tolerance" : "5", "altitude" : "True", "limit" : "1000"]
+    static let noSettings = ["tolerance" : "5", "altitude" : "True", "limit" : "1000"]
     public var settingsSelected = [String : String]() {
         didSet {
             let defaults = UserDefaults.standard
@@ -39,6 +39,7 @@ class Model  {
         }
     }
     
+    public var listOfStates = [String]()
     
     //    sqlite> PRAGMA table_info(locations);
     //    0|location|Text|1||0
@@ -153,10 +154,7 @@ class Model  {
         let myLat = Double(command[4])!
         let myLon = Double(command[5])!
         var bearingTolerance : Double = Double(settingsSelected["tolerance"] ?? "5")!
-        var state : String = settingsSelected["state"] ?? "CA"
-        if state != "" {
-            state = "'" + state + "'"
-        }
+        let states = listOfStates.joined(separator: ",")
         if let sqlPath = Bundle.main.path(forResource: Model.waxnav, ofType: "db") {
             do {
                 let db = try Connection((sqlPath))
@@ -182,61 +180,31 @@ class Model  {
                 }
                 let limitSQL = settingsSelected["limit"] ?? "100"
                 bearingTolerance = Double(settingsSelected["tolerance"] ?? "5")!
-                let distanceLimitInDegrees = distanceLimit/60
-                var minLat = myLat
-                var maxLat = myLat
-                var minLon = myLon
-                var maxLon = myLon
-                if myLat < 0.0 {
-                    minLat += distanceLimitInDegrees
-                    maxLat -= distanceLimitInDegrees
-                } else {
-                    minLat -= distanceLimitInDegrees
-                    maxLat += distanceLimitInDegrees
-                }
-                if myLon < 0.0 {
-                    minLon += distanceLimitInDegrees
-                    maxLon -= distanceLimitInDegrees
-                } else {
-                    minLon -= distanceLimitInDegrees
-                    maxLon += distanceLimitInDegrees
-                }
-                if minLon > maxLon {
-                    let temp = maxLon
-                    maxLon = minLon
-                    minLon = temp
-                } else {
-                    print("OK")
-                }
-                if minLat > maxLat {
-                    let temp = maxLat
-                    maxLat = minLat
-                    minLat = temp
-                }
+                let box = LatLonBox(distanceLimit: distanceLimit, myLat: myLat, myLon: myLon)
                 var sqlStatement = ""
                 let useFeatures = buildFeatureList(selectedFeatures: featuresSelected)
                 var isFTS5Search = true
                 if searchWords != ""  && facingDirection == ""  && (!(searchWords.contains("%"))){
-                    sqlStatement = String(format: "select * from point p inner join locations l on l.rowid = p.locationRowID where point match %@ and featureClass in %@ and latitude between %f and %f and longitude between %f and %f and elevation >= %f LIMIT %@", searchWords, useFeatures, minLat, maxLat, minLon, maxLon, minAltitudeLimit, limitSQL)
+                    sqlStatement = String(format: "select * from point p inner join locations l on l.rowid = p.locationRowID where point match %@ and featureClass in %@ and latitude between %f and %f and longitude between %f and %f and elevation >= %f LIMIT %@", searchWords, useFeatures, box.minLat, box.maxLat, box.minLon, box.maxLon, minAltitudeLimit, limitSQL)
                 } else {
                     isFTS5Search = false
                     // searches are full searches or searches with a state index
                     if searchWords == "" {
-                        if state != "" {
+                        if states != "" {
                             // use state index
-                            sqlStatement = String(format: "select * from locations where featureClass in %@ and state = %@ and latitude between %f and %f and longitude between %f and %f and elevation >= %f LIMIT %@", useFeatures, state, minLat, maxLat, minLon, maxLon, minAltitudeLimit, limitSQL)
+                            sqlStatement = String(format: "select * from locations where featureClass in %@ and state in (%@) and latitude between %f and %f and longitude between %f and %f and elevation >= %f LIMIT %@", useFeatures, states, box.minLat, box.maxLat, box.minLon, box.maxLon, minAltitudeLimit, limitSQL)
                         } else {
                             // full database search
-                            sqlStatement = String(format: "select * from locations where featureClass in %@ and latitude between %f and %f and longitude between %f and %f and elevation >= %f LIMIT %@", useFeatures, minLat, maxLat, minLon, maxLon, minAltitudeLimit, limitSQL)
+                            sqlStatement = String(format: "select * from locations where featureClass in %@ and latitude between %f and %f and longitude between %f and %f and elevation >= %f LIMIT %@", useFeatures, box.minLat, box.maxLat, box.minLon, box.maxLon, minAltitudeLimit, limitSQL)
                         }
                     } else {
-                        if state != "" {
+                        if states != "" {
                             // use state index
-                            sqlStatement = String(format: "select * from locations where featureClass in %@ and state = %@ and location like '%@' and latitude between %f and %f and longitude between %f and %f and elevation >= %f LIMIT %@",useFeatures ,state, searchWords, minLat, maxLat, minLon, maxLon, minAltitudeLimit, limitSQL)
+                            sqlStatement = String(format: "select * from locations where featureClass in %@ and state in (%@) and location like '%@' and latitude between %f and %f and longitude between %f and %f and elevation >= %f LIMIT %@",useFeatures ,states, searchWords, box.minLat, box.maxLat, box.minLon, box.maxLon, minAltitudeLimit, limitSQL)
                             isFTS5Search = false
                         } else {
                             // full database search
-                            sqlStatement = String(format: "select * from locations where featureClass in %@ and location like '%@' and latitude between %f and %f and longitude between %f and %f and elevation >= %f LIMIT %@",useFeatures ,searchWords, minLat, maxLat, minLon, maxLon, minAltitudeLimit, limitSQL)
+                            sqlStatement = String(format: "select * from locations where featureClass in %@ and location like '%@' and latitude between %f and %f and longitude between %f and %f and elevation >= %f LIMIT %@",useFeatures ,searchWords, box.minLat, box.maxLat, box.minLon, box.maxLon, minAltitudeLimit, limitSQL)
                             isFTS5Search = false
                         }
                     }
@@ -384,4 +352,26 @@ class Model  {
         }
         return"(\'"+list.joined(separator: "','")+"\')"
     }
+    
+
+    func limitStates(distance : Double, currentLat : Double, currentLon : Double) {
+        let box = LatLonBox(distanceLimit: distance, myLat: currentLat, myLon: currentLon)
+        if let sqlPath = Bundle.main.path(forResource: Model.waxnav, ofType: "db") {
+            do {
+                let db = try Connection((sqlPath))
+                let sqlStatement = String(format: "select distinct state from locations where latitude between %f and %f and longitude between %f and %f",box.minLat, box.maxLat, box.minLon, box.maxLon)
+                let stmt = try db.prepare(sqlStatement)
+                for row in stmt {
+                    let quote = "'"
+                    let state =  String(format: "%@%@%@",quote, row[0] as! String, quote)
+                    listOfStates.append(state)
+                }
+                
+            } catch  {
+                self.sqliteMessage =  "Connection error: \(error)"
+            }
+        }
+
+    }
+
 }
