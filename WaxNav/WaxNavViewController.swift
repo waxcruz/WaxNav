@@ -21,6 +21,7 @@ class WaxNavViewController: UIViewController, UITextFieldDelegate, UITableViewDe
     @IBOutlet weak var currentPosition: UILabel!
     @IBOutlet weak var currentAltitude: UILabel!
     @IBOutlet weak var heading: UILabel!
+    @IBOutlet weak var lastReadingGPS: UILabel!
     @IBOutlet weak var messageText: UITextView!
     
 // labels of input fields for highlighting use
@@ -86,6 +87,7 @@ class WaxNavViewController: UIViewController, UITextFieldDelegate, UITableViewDe
     var stateChoice : String = ""
     let degreeSymbol = "º"
     var isStateListSet = false
+    var gpsRead : Date?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -104,7 +106,8 @@ class WaxNavViewController: UIViewController, UITextFieldDelegate, UITableViewDe
         compassLock.backgroundColor = UIColor.white
         locationManager.startUpdatingHeading()
         distanceChoice = distance.text ?? "5"
-
+        gpsRead = nil
+        lastReadingGPS.text = "No reading"
     }
     
     @objc func userDefaultsDidChange(_ notification: Notification) {
@@ -135,6 +138,7 @@ class WaxNavViewController: UIViewController, UITextFieldDelegate, UITableViewDe
                 model.limitStates(distance: 50.0, currentLat: latitude, currentLon: longitude)
                 isStateListSet = true
             }
+            gpsRead = Date()
          } else {
             latitude = 0.0
             longitude = 0.0
@@ -182,6 +186,17 @@ class WaxNavViewController: UIViewController, UITextFieldDelegate, UITableViewDe
             //String(format: "%.2f%@ %.2f%@", latitude, latQualifier, longitude, lonQualitier)
         currentAltitude.text = WaxNumberFormatting.doubleWithSeparator(myNumber: altitude) + "'"
         messageText.text = ""
+        if gpsRead == nil {
+            lastReadingGPS.text = ""
+        } else {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "h:mma"
+            let elapsedTime = Date().timeIntervalSince(gpsRead!)
+
+            // convert from seconds to hours, rounding down to the nearest hour
+            let minutes = elapsedTime / 60.0
+            lastReadingGPS.text = String(format: "GPS reading is %.1f minutes old", minutes)
+        }
     }
 
     @IBAction func takeLatLonReading(_ sender: Any) {
